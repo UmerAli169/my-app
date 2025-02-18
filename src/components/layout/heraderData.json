@@ -1,0 +1,9 @@
+{
+  "menuItems": [
+    { "label": "SHOP ALL", "enabled": true },
+    { "label": "BESTSELLERS", "enabled": true },
+    { "label": "COLLECTION", "enabled": true },
+    { "label": "ABOUT US", "enabled": true },
+    { "label": "BLOG", "enabled": true }
+  ]
+}
