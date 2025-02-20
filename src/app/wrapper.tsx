@@ -6,10 +6,10 @@ type ContainerProps = {
 };
 
 const wrapper: React.FC<ContainerProps> = ({ children }) => {
-  return (<div className={` container mx-auto `}>
+  return (<div className={`  px-[20px] container mx-auto `}>
     {children}
     </div>)
 };
 
 export default wrapper;
-//lg:px-[120px] xl:px-[252px]  2xl:px-[352px] sm:px-[20px] 
+    
