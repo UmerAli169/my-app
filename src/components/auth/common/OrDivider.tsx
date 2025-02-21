@@ -1,10 +1,11 @@
+
 export const OrDivider = () => {
     return (
       <div className="flex items-center my-4">
-        <div className="flex-1 border-t border-gray-300"></div>
-        <span className="px-4 text-gray-500 text-sm">OR</span>
-        <div className="flex-1 border-t border-gray-300"></div>
-      </div>
+         <img src='./leftline.svg' alt={'umer'} className='' />
+        <span className="font-[poppins] text-[16px] px-[10px] text-[#B0A6BD]  font-normal">OR</span>
+        <img src='./rightline.svg' alt={'umer'} className='' />
+        </div>
     );
   };
 

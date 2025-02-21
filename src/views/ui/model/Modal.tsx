@@ -9,8 +9,8 @@ interface ModalProps {
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return (
-    <div className='fixed inset-0 bg-[#697586] bg-opacity-10 flex items-center justify-center   '>
-      <div className='bg-[#FFFFFF] rounded-lg   max-w-[557px]  relative py-[40px] px-[100px]'>
+    <div  className='fixed inset-0 bg-[#697586] bg-opacity-10 flex items-center justify-center  '>
+      <div className='bg-[#FFFFFF] rounded-lg  max-w-[957px]  relative py-[40px] px-[100px] flex flex-col items-center '>
         {close && (
           <img
             src={close.closeMenu.img}

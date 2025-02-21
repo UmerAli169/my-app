@@ -1,9 +1,9 @@
 import React from 'react';
-import {AuthModal} from '../common/AuthModal';
-import {AuthInput} from '../common/AuthInput';
-import {AuthButton} from '../common/AuthButton';
-import {GoogleButton} from '../common/GoogleButton';
-import {OrDivider} from '../common/OrDivider';
+import { AuthModal } from '../common/AuthModal';
+import { AuthInput } from '../common/AuthInput';
+import { AuthButton } from '../common/AuthButton';
+import { GoogleButton } from '../common/GoogleButton';
+import { OrDivider } from '../common/OrDivider';
 import Link from 'next/link';
 
 interface LoginModalProps {
@@ -13,55 +13,23 @@ interface LoginModalProps {
   onCreateAccount: () => void;
 }
 
-export const LoginModal = ({ 
-  isOpen, 
-  onClose, 
-  onRecoverPassword, 
-  onCreateAccount 
-}: LoginModalProps) => {
+export const LoginModal = ({ isOpen, onClose, onRecoverPassword, onCreateAccount }: LoginModalProps) => {
   return (
-    <AuthModal
-      isOpen={isOpen}
-      onClose={onClose}
-      title="Log In"
-    >
-      <form className="space-y-4">
-        <AuthInput
-          label="Email"
-          type="email"
-          placeholder="Enter your email"
-          required
-        />
-        <AuthInput
-          label="Password"
-          type="password"
-          placeholder="Enter your password"
-          required
-        />
-        
-        <AuthButton type="submit">Log In</AuthButton>
-        
-        <div className="text-center">
-          <button
-            type="button"
-            onClick={onRecoverPassword}
-            className="text-gray-600 hover:text-gray-800 text-sm"
-          >
-            Forgot your password? Recover password
+    <AuthModal isOpen={isOpen} onClose={onClose} title='Log In' heading='Please enter your e-mail and password:'>
+      <form className='flex flex-col gap-4'>
+        <AuthInput type='email' placeholder='Email' required />
+        <AuthInput type='password' placeholder='Password' required />
+        <AuthButton type='submit'>Log In</AuthButton>
+        <OrDivider />
+        <GoogleButton />
+        <div className='text-center font-[poppins] text-[16px] text-[#383838]  font-medium'>
+          <button type='button' onClick={onRecoverPassword}>
+            Forgot your password? <span className='underline'> Recover password </span>
           </button>
         </div>
-
-        <OrDivider />
-        
-        <GoogleButton />
-
-        <div className="text-center text-sm text-gray-600">
+        <div className='text-center font-[poppins] text-[16px] text-[#383838]  font-medium'>
           New to Bloom Beauty?{' '}
-          <button
-            type="button"
-            onClick={onCreateAccount}
-            className="text-pink-500 hover:text-pink-600"
-          >
+          <button type='button' onClick={onCreateAccount} className='underline  '>
             Create an Account
           </button>
         </div>
@@ -69,4 +37,3 @@ export const LoginModal = ({
     </AuthModal>
   );
 };
-
