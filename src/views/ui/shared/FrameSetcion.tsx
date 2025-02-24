@@ -14,7 +14,6 @@ const FrameSection: React.FC<FrameSectionProps> = ({ productIndex, isImageFirst 
   if (!product) return null; 
 
   return (
-    <Wrapper>
       <div className="flex flex-col lg:flex-row justify-between items-center lg:pt-[60px] pt-[71px]">
         {isImageFirst && (
           <div className="bg-white rounded-[6px] flex justify-center items-center">
@@ -51,7 +50,6 @@ const FrameSection: React.FC<FrameSectionProps> = ({ productIndex, isImageFirst 
           </div>
         )}
       </div>
-    </Wrapper>
   );
 };
 

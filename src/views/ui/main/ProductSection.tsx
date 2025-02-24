@@ -4,7 +4,14 @@ import Wrapper from "@/app/wrapper";
 import ProductCard from "../shared/ProductCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const ProductSection = ({ title, products }: any) => {
+
+
+interface ProductSectionProps {
+  title: string;
+  products: any[];
+  cardWidth: number;
+}
+const ProductSection = ({ title, products,cardWidth }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -22,7 +29,7 @@ const ProductSection = ({ title, products }: any) => {
     const handleScroll = () => {
       if (scrollRef.current) {
         const scrollLeft = scrollRef.current.scrollLeft;
-        const cardWidth = 320; // Adjust if needed
+        const cardWidth = 320; 
         const visibleIndex = Math.round(scrollLeft / (cardWidth * 4));
         setCurrentIndex(visibleIndex);
       }
@@ -55,7 +62,7 @@ const ProductSection = ({ title, products }: any) => {
 
           <div ref={scrollRef} className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap">
             {products.map((product: any) => (
-              <div key={product.id} className="max-w-[289px] w-full shrink-0">
+              <div key={product.id} style={{ maxWidth: `${cardWidth}px`, width: "100%" }} className="shrink-0">
                 <ProductCard product={product} />
               </div>
             ))}
