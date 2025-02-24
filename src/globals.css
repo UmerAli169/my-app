@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
-mycontainer {
-  border: 2px solid red;
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }

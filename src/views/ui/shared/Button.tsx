@@ -1,10 +1,12 @@
- // views/ui/Button.tsx
- const Button = ({ label }: { label: string }) => {
-    return (
-      <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-        {label}
-      </button>
-    );
-  };
-  
-  export default Button;
+const Button = ({ children, className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+  return (
+    <button
+      {...props}
+      className={`lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF] lg:p-[10px] px-[10px] py-[8px]  lg:text-[16px] text-[14px]  font-normal rounded-[4px] ${className || ""}`}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;

@@ -15,7 +15,7 @@ export const AuthInput = ({ name, type,label, placeholder, required }: AuthInput
   return (
     <div className="relative w-full">
       {label && (
-        <label htmlFor={name} className="block font-[poppins] text-[12px] text-[#B0A6BD]  font-normal">
+        <label htmlFor={name} className="block  text-[12px] text-[#B0A6BD]  font-normal">
           {label}
         </label>
       )}

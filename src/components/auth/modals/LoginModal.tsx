@@ -65,13 +65,13 @@ export const LoginModal = ({ isOpen, onClose, onRecoverPassword, onCreateAccount
         <OrDivider />
         <GoogleButton />
 
-        <div className='text-center font-[poppins]  md:text-[16px] text-[14px] text-[#697586] font-medium'>
+        <div className='text-center   md:text-[16px] text-[14px] text-[#697586] font-medium'>
           <button type='button' onClick={onRecoverPassword}>
             Forgot your password? <span className='underline'> Recover password </span>
           </button>
         </div>
 
-        <div className='text-center font-[poppins]  md:text-[16px] text-[14px]  text-[#697586] font-medium'>
+        <div className='text-center   md:text-[16px] text-[14px]  text-[#697586] font-medium'>
           New to Bloom Beauty?{' '}
           <button type='button' onClick={onCreateAccount} className='underline'>
             Create an Account

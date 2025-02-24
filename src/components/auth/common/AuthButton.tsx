@@ -2,7 +2,7 @@ export const AuthButton = ({ children, ...props }: React.ButtonHTMLAttributes<HT
     return (
       <button
         {...props}
-        className="w-full  bg-[#F5A3B7] text-[#FFFFFF] p-[10px] font-[poppins] text-[16px]  font-normal rounded-[4px]"
+        className="w-full  bg-[#F5A3B7] text-[#FFFFFF] p-[10px]  text-[16px]  font-normal rounded-[4px]"
       >
         {children}
       </button>

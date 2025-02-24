@@ -42,12 +42,12 @@ const Footer = () => {
 
           <div className='grid grid-cols-1 md:grid-cols-5 gap-8'>
             <div className='space-y-4'>
-              <p className='text-[#FFFFFF] text-[24px] font-[poppins] leading-[25px]'>
+              <p className='text-[#FFFFFF] text-[24px]  leading-[25px]'>
                 <span className='text-[#B0A6BD]'>{data.brand.name.split(' ')[0]} </span>
                 {data.brand.name.split(' ')[1]}
               </p>
-              <p className='text-[#FFFFFF] text-[16px] font-[poppins] leading-[22px]'>{data.brand.description}</p>
-              <div className='space-y-2 text-[#FFFFFF] text-[14px] font-[poppins]'>
+              <p className='text-[#FFFFFF] text-[16px]  leading-[22px]'>{data.brand.description}</p>
+              <div className='space-y-2 text-[#FFFFFF] text-[14px] '>
                 <p>{data.brand.contact.phone}</p>
                 <p>{data.brand.contact.email}</p>
                 <p>{data.brand.contact.location}</p>
@@ -57,13 +57,13 @@ const Footer = () => {
             {/* Dynamic Sections */}
             {data.sections.map((section: any) => (
               <div key={section.title} className='space-y-4'>
-                <h3 className='text-[#FFFFFF] text-[18px] font-[poppins] leading-[22px] font-medium'>
+                <h3 className='text-[#FFFFFF] text-[18px]  leading-[22px] font-medium'>
                   {section.title}
                 </h3>
                 <ul className='space-y-2'>
                   {section.links.map((link: any) => (
                     <li key={link.label}>
-                      <Link href={link.href} className='text-[#FFFFFF] text-[14px] font-[poppins] hover:text-gray-800'>
+                      <Link href={link.href} className='text-[#FFFFFF] text-[14px]  hover:text-gray-800'>
                         {link.label}
                       </Link>
                     </li>
@@ -74,32 +74,32 @@ const Footer = () => {
 
             {/* Newsletter Section */}
             <div className='space-y-4'>
-              <h3 className='text-[#FFFFFF] text-[18px] font-[poppins] leading-[22px] font-medium'>
+              <h3 className='text-[#FFFFFF] text-[18px]  leading-[22px] font-medium'>
                 {data.newsletter.title}
               </h3>
-              <p className='text-[#FFFFFF] text-[14px] font-[poppins] leading-[20px]'>{data.newsletter.description}</p>
+              <p className='text-[#FFFFFF] text-[14px]  leading-[20px]'>{data.newsletter.description}</p>
               <div className='flex'>
                 <input
                   type='email'
                   placeholder='Your email'
-                  className='px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-gray-200 text-[#FFFFFF] text-[14px] font-[poppins]'
+                  className='px-4 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-gray-200 text-[#FFFFFF] text-[14px] '
                 />
               </div>
-              <button className='px-4 py-2 text-white rounded-r  text-[14px] font-[poppins]'>Subscribe →</button>
+              <button className='px-4 py-2 text-white rounded-r  text-[14px] '>Subscribe →</button>
             </div>
           </div>
 
           {/* Bottom Section */}
           <div className='mt-8 pt-8 border-t border-gray-200'>
             <div className='flex justify-between items-center'>
-              <p className='text-[#FFFFFF] text-[14px] font-[poppins]'>{data.bottom.copyright}</p>
+              <p className='text-[#FFFFFF] text-[14px] '>{data.bottom.copyright}</p>
 
               <div className='flex space-x-4'>
                 {data.bottom.policies.map((policy: any) => (
                   <Link
                     key={policy.label}
                     href={policy.href}
-                    className='text-[#FFFFFF] text-[14px] font-[poppins] hover:text-gray-800'
+                    className='text-[#FFFFFF] text-[14px]  hover:text-gray-800'
                   >
                     {policy.label}
                   </Link>

@@ -38,7 +38,7 @@ const Header = () => {
               </button>
             </div>
 
-            <p className='text-[#383838] text-[24px] font-[poppins] font-medium leading-[25px]'>
+            <p className='text-[#383838] text-[24px]  font-medium leading-[25px]'>
               <span className='text-[#F5A3B7]'>Bloom </span>Beauty
             </p>
 
@@ -64,7 +64,7 @@ const Header = () => {
                   }}
                 >
                   <img src={img} alt={label} className='w-[24px] h-[24px]' />
-                  <p className='font-[poppins] text-[12px] font-normal group-hover:text-[#F5A3B7]'>{label}</p>
+                  <p className=' text-[12px] font-normal group-hover:text-[#F5A3B7]'>{label}</p>
                 </div>
               ))}
             </div>
@@ -91,7 +91,7 @@ const Header = () => {
                   {navigationIcons.map(({ img, label }) => (
                     <div key={label} className='flex items-center p-2 text-[#383838]'>
                       <img src={img} alt={label} className='w-[24px] h-[24px] mr-2' />
-                      <span className='font-[poppins] text-[16px] font-normal'>{label.toUpperCase()}</span>
+                      <span className=' text-[16px] font-normal'>{label.toUpperCase()}</span>
                     </div>
                   ))}
 

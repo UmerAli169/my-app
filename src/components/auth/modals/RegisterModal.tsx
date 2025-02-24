@@ -51,7 +51,7 @@ export const RegisterModal = ({ isOpen, onClose, onLoginClick }: RegisterModalPr
             <div className='p-[10px] bg-[#E9F6EE] text-[#1E4620] rounded-md flex flex-col max-w-[398px] text-center'>
               <img src='/check.svg' alt='Success' className='w-[24px] mb-2' />
 
-              <p className='font-[poppins] text-[14px] text-[#1E4620] font-medium'>
+              <p className=' text-[14px] text-[#1E4620] font-medium'>
                 We have sent you an email, please click the link included to verify your email address.
               </p>
             </div>
@@ -59,7 +59,7 @@ export const RegisterModal = ({ isOpen, onClose, onLoginClick }: RegisterModalPr
             <OrDivider />
             <GoogleButton />
 
-            <div className='text-center font-[poppins] md:text-[16px] text-[14px] text-[#697586] font-medium'>
+            <div className='text-center  md:text-[16px] text-[14px] text-[#697586] font-medium'>
               Do you already have an account?
               <button type='button' onClick={onLoginClick} className='underline'>
                 Back to Log In
@@ -105,7 +105,7 @@ export const RegisterModal = ({ isOpen, onClose, onLoginClick }: RegisterModalPr
           <OrDivider />
 
           <GoogleButton />
-          <div className='text-center font-[poppins] md:text-[16px] text-[14px] text-[#697586] font-medium'>
+          <div className='text-center  md:text-[16px] text-[14px] text-[#697586] font-medium'>
             Do you already have an account?
             <button type='button' onClick={onLoginClick} className='underline'>
               Back to Log In{' '}

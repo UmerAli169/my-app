@@ -50,7 +50,7 @@ export const RecoverPasswordModal = ({ isOpen, onClose, onLoginClick, heading }:
         <div className="flex flex-col items-center gap-[10px]">
           <div className="p-[10px] bg-[#E9F6EE] text-[#1E4620] rounded-[4px] flex flex-col max-w-[398px] ">
             <img src="/check.svg" alt="Success" className="w-[24px] mb-2" />
-            <p className="font-[poppins] text-[14px] text-[#1E4620] font-medium">
+            <p className=" text-[14px] text-[#1E4620] font-medium">
             An e-mail has been sent to your address with instructions to recover your password.            </p>
           </div>
 
@@ -79,7 +79,7 @@ export const RecoverPasswordModal = ({ isOpen, onClose, onLoginClick, heading }:
           <OrDivider />
 
           <GoogleButton />
-          <div className="text-center font-[poppins] md:text-[16px] text-[14px] text-[#697586] font-medium">
+          <div className="text-center  md:text-[16px] text-[14px] text-[#697586] font-medium">
             Remember your password?
             <button type="button" onClick={onLoginClick} className="underline">
               Back to Log In
