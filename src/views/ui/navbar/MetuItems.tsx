@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import DropdownMenu from "../DropdownMenu/NavbarDropDown"; 
+import NavbarShowAllDropDown from "../DropdownMenu/NavbarShowAllDropDown";
+import NavbarBestSellerDropdown from "../DropdownMenu/NavbarBestSellerDropdown";
 
 interface MenuItemProps {
   label: string;
@@ -18,18 +19,24 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link
-        href={label.toLowerCase() === "aboutus" ? "/AboutUs" : "/"}
-        className={`flex items-center ${enabled ? "text-black" : "text-gray-400"}`}
-      >
-        <span className="text-[16px] text-[#383838] font-medium">{label}</span>
-      </Link>
+  href={
+    label.toLowerCase() === "aboutus"
+      ? "/AboutUs"
+      : label.toLowerCase() === "blog"
+      ? "/Blogs"
+      : "/"
+  }
+  className={`flex items-center ${enabled ? "text-black" : "text-gray-400"}`}
+>
+  <span className="text-[16px] text-[#383838] font-medium">{label}</span>
+</Link>
 
       {hasSubmenu && (
         <img src="/chevron.svg" alt="submenu" className="w-[12px] h-[12px] md:block sm:block hidden" />
       )}
 
-      {/* Render DropdownMenu when hovering over "SHOP ALL" */}
-      {isHovered && label === "SHOP ALL" && <DropdownMenu />}
+      {isHovered && label === "SHOP ALL" && <NavbarShowAllDropDown />}
+      {isHovered && label === "Bestsellers" && <NavbarBestSellerDropdown  />}
     </li>
   );
 };

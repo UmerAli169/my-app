@@ -1,6 +1,6 @@
-import AboutSection from "../../views/ui/about/AboutSection";
+import AboutSection from "../../views/ui/About/AboutSection";
 import aboutData from "../../Data/about/aboutData.json";
-import Sidebar from "@/views/ui/about/Sidebar";
+import Sidebar from "@/views/ui/About/Sidebar";
 import Wrapper from "@/app/wrapper";
 
 export default function AboutPage() {

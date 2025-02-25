@@ -39,7 +39,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="font-[Montserrat] text-[16px] text-[#383838]  font-normal ">{product.price}</div>
       </div>
       <div className="px-[20px] py-[10px]">
-        <Button className="bg-white text-black border border-black hover:bg-black hover:text-white">
+        <Button className=" lg:p-[10px] px-[10px] py-[8px] bg-white text-black border border-black hover:bg-black hover:text-white">
           Add To Bag</Button>
       </div>
     </CustomCard>

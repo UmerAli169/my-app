@@ -30,7 +30,7 @@ const InstagramGallery = () => {
           ))}
         </div>
 
-        <Button className="lg:max-w-[226px] w-full">
+        <Button className="lg:max-w-[226px] w-full lg:p-[10px] px-[10px] py-[8px]">
           Explore More
         </Button>
       </div></Wrapper>

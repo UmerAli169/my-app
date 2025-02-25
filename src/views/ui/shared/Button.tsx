@@ -2,7 +2,7 @@ const Button = ({ children, className, ...props }: React.ButtonHTMLAttributes<HT
   return (
     <button
       {...props}
-      className={`lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF] lg:p-[10px] px-[10px] py-[8px]  lg:text-[16px] text-[14px]  font-normal rounded-[4px] ${className || ""}`}
+      className={`lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF]   lg:text-[16px] text-[14px]  font-normal rounded-[4px] ${className || ""}`}
     >
       {children}
     </button>
@@ -10,3 +10,4 @@ const Button = ({ children, className, ...props }: React.ButtonHTMLAttributes<HT
 };
 
 export default Button;
+// lg:p-[10px] px-[10px] py-[8px]

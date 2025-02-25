@@ -13,7 +13,7 @@ const SkinQuiz = () => {
                         <p className="lg:text-[36px] text-[32px] text-[#383838] font-bold">The Skin Quiz</p>
                         <p className="lg:text-[18px] text-[16px] text-[#697586] font-medium">
                             Meet the quiz that will curate a routine just just just as unique as you are.</p>
-                            <Button className="lg:max-w-[226px] w-full">
+                            <Button className="lg:max-w-[226px] w-full lg:p-[10px] px-[10px] py-[8px]">
 
                             Explore More
                         </Button>
