@@ -21,7 +21,7 @@ const FrameSection: React.FC<FrameSectionProps> = ({ productIndex, isImageFirst 
           </div>
         )}
 
-        <div className="bg-white rounded-[6px] flex flex-col justify-center gap-[30px] p-[20px] max-w-[600px]">
+        <div className="bg-white rounded-[6px] flex flex-col justify-center gap-[30px]  max-w-[500px] ">
           <p className="lg:text-[36px] text-[18px] font-bold text-[#383838]">{product.title}</p>
           <p className="lg:text-[16px] font-[Montserrat] text-[12px] font-normal text-[#697586]">
             {product.description}
@@ -35,7 +35,7 @@ const FrameSection: React.FC<FrameSectionProps> = ({ productIndex, isImageFirst 
             ))}
           </div>
 
-          <div className="flex items-center gap-[10px]">
+          <div className="flex items-center gap-[10px] pb-[20px]">
             <Button className="max-w-[246px]">{product.shopNowText}</Button>
             <div className="flex items-center gap-[4px]">
               <Button className="max-w-[137px] bg-white text-black">{product.exploreMoreText}</Button>
