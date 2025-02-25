@@ -9,6 +9,7 @@ function Frame() {
       <FrameSection productIndex={1} isImageFirst={false} />
       <FrameSection productIndex={2} isImageFirst={true} />
       <FrameSection productIndex={3} isImageFirst={false} />
+      
 
     </Wrapper>
   );

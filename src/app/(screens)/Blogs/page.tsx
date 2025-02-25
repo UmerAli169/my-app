@@ -1,5 +1,5 @@
 import React from "react";
-import BlogSection from "../../../views/ui/Blog/BlogSection";
+import BlogSection from "../../../views/ui/shared/FrameSetcion";
 import CategoryFilter from "@/views/ui/Blog/CategoryFilter";
 import Wrapper from "@/app/wrapper";
 
@@ -9,10 +9,10 @@ const Blog = () => {
       <CategoryFilter />
       <Wrapper>
         <div className="grid md:grid-cols-2 gap-6 py-[80px]">
-          <BlogSection blogIndex={0} isImageFirst={true} />
-          <BlogSection blogIndex={1} isImageFirst={false} />
-          <BlogSection blogIndex={2} isImageFirst={true} />
-          <BlogSection blogIndex={3} isImageFirst={false} />
+          <BlogSection  productIndex={0} isImageFirst={true} />
+          <BlogSection  productIndex={0} isImageFirst={false} />
+          <BlogSection  productIndex={0} isImageFirst={true} />
+          <BlogSection  productIndex={0} isImageFirst={false} />
         </div>
       </Wrapper>
     </>
