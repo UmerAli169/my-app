@@ -1,0 +1,41 @@
+{
+    "dropdownItems": [
+      {
+        "title": "Shop All",
+        "links": ["Bestsellers", "Collection", "Deals", "Minis", "New Arrivals"]
+      },
+      {
+        "title": "Double-Cleanse",
+        "links": ["Cleansing Balms", "Oil Cleansers", "Water Cleansers"]
+      },
+      {
+        "title": "Exfoliators",
+        "links": ["Physical Exfoliators", "Chemical Exfoliators"]
+      },
+      {
+        "title": "Toners",
+        "links": ["Acid Toners", "Cleansing Toners", "Hydrating Toners"]
+      },
+      {
+        "title": "Moisturizers",
+        "links": ["Facial Moisturizer", "Facial Mist", "Facial Oil"]
+      },
+      {
+        "title": "Masks",
+        "links": ["Sheet Masks", "Wash-off Masks", "Sleeping Masks"]
+      },
+      {
+        "title": "Eye Care",
+        "links": ["Eye Cream", "Eye Masks"]
+      },
+      {
+        "title": "Sun Protection",
+        "links": ["Sunscreen", "Makeup & SPF"]
+      },
+      {
+        "title": "Skin Type",
+        "links": ["Oily", "Dry", "Combination", "Normal"]
+      }
+    ]
+  }
+  
