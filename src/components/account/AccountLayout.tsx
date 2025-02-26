@@ -8,9 +8,9 @@ const AccountLayout = ({ children }: { children: ReactNode }) => {
 
     <Wrapper>
 
-    <div className="flex gap-[20px] ">
+    <div className="flex md:flex-row  flex-col gap-[20px] ">
       <AccountSidebar />
-      <div className="flex-1 bg-white p-6 rounded-lg ">{children}</div>
+      <div className="flex-1 bg-white  rounded-lg px-[20px] py-[40px] ">{children}</div>
     </div>
     </Wrapper></div>
   );

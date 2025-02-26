@@ -1,45 +1,59 @@
-import { useFormik } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import Button from "@/views/ui/shared/Button";
+import { AuthInput } from "../../views/ui/shared/Input";
 
 const ChangePasswordForm = () => {
-  const formik = useFormik({
-    initialValues: { oldPassword: "", newPassword: "", confirmPassword: "" },
-    validationSchema: Yup.object({
-      oldPassword: Yup.string().required("Old password is required"),
-      newPassword: Yup.string().min(6, "At least 6 characters").required("New password is required"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("newPassword")], "Passwords must match")
-        .required("Confirm password is required"),
-    }),
-    onSubmit: (values) => {
-      console.log("Password update:", values);
-    },
-  });
-
   return (
-    <form onSubmit={formik.handleSubmit} className="space-y-4">
-      <h2 className="text-xl font-semibold">Change Password</h2>
+    <Formik
+      initialValues={{ oldPassword: "", newPassword: "", confirmPassword: "" }}
+      validationSchema={Yup.object({
+        oldPassword: Yup.string().required("Old password is required"),
+        newPassword: Yup.string()
+          .min(6, "At least 6 characters")
+          .required("New password is required"),
+        confirmPassword: Yup.string()
+          .oneOf([Yup.ref("newPassword")], "Passwords must match")
+          .required("Confirm password is required"),
+      })}
+      onSubmit={(values) => {
+        console.log("Password update:", values);
+      }}
+    >
+      {() => (
+        <Form className="space-y-4 ">
+          <h2 className="text-xl font-semibold">Change Password</h2>
 
-      <div>
-        <label className="block font-medium">Old Password</label>
-        <input type="password" className="w-full p-2 border rounded" {...formik.getFieldProps("oldPassword")} />
-        {formik.touched.oldPassword && formik.errors.oldPassword && <p className="text-red-500">{formik.errors.oldPassword}</p>}
-      </div>
+          <AuthInput
+            name="oldPassword"
+            type="password"
+            placeholder="Old Password"
+            required
+          />
 
-      <div>
-        <label className="block font-medium">New Password</label>
-        <input type="password" className="w-full p-2 border rounded" {...formik.getFieldProps("newPassword")} />
-        {formik.touched.newPassword && formik.errors.newPassword && <p className="text-red-500">{formik.errors.newPassword}</p>}
-      </div>
+          <div className="flex gap-4">
+            <AuthInput
+              name="newPassword"
+              type="password"
+              placeholder="New Password"
+              required
+            />
+            <AuthInput
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
 
-      <div>
-        <label className="block font-medium">Confirm New Password</label>
-        <input type="password" className="w-full p-2 border rounded" {...formik.getFieldProps("confirmPassword")} />
-        {formik.touched.confirmPassword && formik.errors.confirmPassword && <p className="text-red-500">{formik.errors.confirmPassword}</p>}
-      </div>
+          
 
-      <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Update Password</button>
-    </form>
+          <Button type="submit" className="px-4 py-2 max-w-[362px]">
+            Update Password
+          </Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

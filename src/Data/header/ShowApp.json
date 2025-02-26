@@ -1,9 +1,9 @@
-{      "categories": ["Shop All", "Skincare", "Haircare", "Bath & Body", "The Next Big Thing"],
+{      "categories": ["Shop All", "Skincare", "Haircare", "Bath & Body", "The Next Big Thing","Oil Cleansers"],
 
     "dropdownItems": [
       {
         "title": "Shop All",
-        "links": ["Bestsellers", "Collection", "Deals", "Minis", "New Arrivals"]
+        "links": ["Bestsellers", "Collection", "Deals"]
       },
       {
         "title": "Double-Cleanse",
@@ -11,19 +11,19 @@
       },
       {
         "title": "Exfoliators",
-        "links": ["Physical Exfoliators", "Chemical Exfoliators"]
+        "links": ["Physical Exfoliators", "Chemical"]
       },
       {
         "title": "Toners",
-        "links": ["Acid Toners", "Cleansing Toners", "Hydrating Toners"]
+        "links": ["Acid Toners", "Cleansing Toners"]
       },
       {
         "title": "Moisturizers",
-        "links": ["Facial Moisturizer", "Facial Mist", "Facial Oil"]
+        "links": ["Facial Moisturizer", "Facial Oil"]
       },
       {
         "title": "Masks",
-        "links": ["Sheet Masks", "Wash-off Masks", "Sleeping Masks"]
+        "links": ["Sheet Masks",  "Sleeping Masks"]
       },
       {
         "title": "Eye Care",
@@ -35,7 +35,7 @@
       },
       {
         "title": "Skin Type",
-        "links": ["Oily", "Dry", "Combination", "Normal"]
+        "links": ["Oily",  "Combination"]
       }
     ]
   }

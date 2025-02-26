@@ -1,8 +1,12 @@
+import AccountLayout from '@/components/account/AccountLayout'
 import React from 'react'
 
 function page() {
   return (
-    <div>order</div>
+    <div>
+          <AccountLayout>
+          order
+            </AccountLayout></div>
   )
 }
 

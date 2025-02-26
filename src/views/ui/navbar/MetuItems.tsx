@@ -13,30 +13,30 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <li 
-      className="relative flex justify-between items-center"
+    <li
+      className="  flex justify-between items-center w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link
-  href={
-    label.toLowerCase() === "aboutus"
-      ? "/AboutUs"
-      : label.toLowerCase() === "blog"
-      ? "/Blogs"
-      : "/"
-  }
-  className={`flex items-center ${enabled ? "text-black" : "text-gray-400"}`}
->
-  <span className="text-[16px] text-[#383838] font-medium">{label}</span>
-</Link>
+        href={
+          label.toLowerCase() === "aboutus"
+            ? "/AboutUs"
+            : label.toLowerCase() === "blog"
+              ? "/Blogs"
+              : "/"
+        }
+        className={`flex  w-full items-center ${enabled ? "text-black" : "text-gray-400"}`}
+      >
+        <span className="text-[16px] text-[#383838] font-medium ">{label}</span>
+      </Link>
 
       {hasSubmenu && (
         <img src="/chevron.svg" alt="submenu" className="w-[12px] h-[12px] md:block sm:block hidden " />
       )}
 
-      {isHovered && label === "SHOP ALL" && <NavbarShowAllDropDown />}
-      {isHovered && label === "Bestsellers" && <NavbarBestSellerDropdown  />}
+      {isHovered && label === "SHOPALL" && <NavbarShowAllDropDown />}
+      {isHovered && label === "BESTSELLERS" && <NavbarBestSellerDropdown  />}
     </li>
   );
 };

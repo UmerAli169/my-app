@@ -37,9 +37,9 @@ const Header = () => {
 
   return (
     <>
-      <nav className='bg-[#FFFFFF]'>
+      <nav className='bg-[#FFFFFF]  relative'>
         <Wrapper>
-          <div className='flex justify-between py-[16px]'>
+          <div className='  flex justify-between py-[16px]'>
             <div className='lg:hidden'>
               <button onClick={toggleMenu}>
                 {mobileMenu && <img src={mobileMenu.img} alt={mobileMenu.label} className='w-[24px] h-[24px]' />}
@@ -51,7 +51,7 @@ const Header = () => {
             </p>
 
             <div className='hidden lg:flex items-center'>
-              <ul className='flex gap-[40px]'>
+              <ul className='flex gap-[40px] '>
                 {menuItems.map((item) => (
                   <MenuItem key={item.label} label={item.label} enabled={item.enabled} />
                 ))}

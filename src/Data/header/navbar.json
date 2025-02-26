@@ -6,24 +6,24 @@
       "hasSubmenu": true
     },
     {
-      "label": "SHOP ALL",
+      "label": "SHOPALL",
       "enabled": true
     },
     {
-      "label": "Bestsellers",
+      "label": "BESTSELLERS",
       "enabled": true
     },
     {
-      "label": "Collection",
+      "label": "COLLECTION",
       "enabled": true
     },
     {
-      "label": "AboutUs",
+      "label": "ABOUTUS",
       "enabled": true,
       "hasSubmenu": true
     },
     {
-      "label": "Blog",
+      "label": "BLOG",
       "enabled": true
     }
   ],
