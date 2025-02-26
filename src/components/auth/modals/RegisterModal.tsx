@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
 import { AuthModal } from '../common/AuthModal';
 import { AuthForm } from '../formick/AuthForm';
-import { AuthInput } from '../common/AuthInput';
+import { AuthInput } from '../../../views/ui/shared/Input';
 import { AuthButton } from '../common/AuthButton';
 import { GoogleButton } from '../common/GoogleButton';
 import { OrDivider } from '../common/OrDivider';

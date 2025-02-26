@@ -1,61 +1,58 @@
-import { useFormik } from "formik";
+import Button from "@/views/ui/shared/Button";
+import { useFormik, Formik, Form } from "formik";
 import * as Yup from "yup";
-
+import { AuthInput } from "../../views/ui/shared/Input"; 
 const ContactInformationForm = () => {
-  const formik = useFormik({
-    initialValues: { firstName: "", lastName: "", email: "" },
-    validationSchema: Yup.object({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
-      email: Yup.string().email("Invalid email").required("Email is required"),
-    }),
-    onSubmit: (values) => {
-      console.log("Form values:", values);
-    },
-  });
-
   return (
-    <form onSubmit={formik.handleSubmit} className="space-y-4">
-      <h2 className="text-xl font-semibold">Contact Information</h2>
+    <Formik
+      initialValues={{ firstName: "", lastName: "", email: "" }}
+      validationSchema={Yup.object({
+        firstName: Yup.string().required("First name is required"),
+        lastName: Yup.string().required("Last name is required"),
+        email: Yup.string().email("Invalid email").required("Email is required"),
+      })}
+      onSubmit={(values) => {
+        console.log("Form values:", values);
+      }}
+    >
+      {() => (
+        <Form className="space-y-4">
+          <h2 className="text-xl font-semibold">Contact Information</h2>
+          
+          <AuthInput
+            name="email"
+            type="email"
+            label="Mail"
+            placeholder="Enter your email"
+            required
+          />
 
-      <div>
-        <label className="block font-medium">First Name</label>
-        <input
-          type="text"
-          className="w-full p-2 border rounded"
-          {...formik.getFieldProps("firstName")}
-        />
-        {formik.touched.firstName && formik.errors.firstName && (
-          <p className="text-red-500">{formik.errors.firstName}</p>
-        )}
-      </div>
+          <div className="flex gap-4">
+            <div className="w-1/2">
+              <AuthInput
+                name="firstName"
+                type="text"
+                label="First Name"
+                placeholder="Enter your first name"
+                required
+              />
+            </div>
 
-      <div>
-        <label className="block font-medium">Last Name</label>
-        <input
-          type="text"
-          className="w-full p-2 border rounded"
-          {...formik.getFieldProps("lastName")}
-        />
-        {formik.touched.lastName && formik.errors.lastName && (
-          <p className="text-red-500">{formik.errors.lastName}</p>
-        )}
-      </div>
+            <div className="w-1/2">
+              <AuthInput
+                name="lastName"
+                type="text"
+                label="Last Name"
+                placeholder="Enter your last name"
+                required
+              />
+            </div>
+          </div>
 
-      <div>
-        <label className="block font-medium">Email</label>
-        <input
-          type="email"
-          className="w-full p-2 border rounded"
-          {...formik.getFieldProps("email")}
-        />
-        {formik.touched.email && formik.errors.email && (
-          <p className="text-red-500">{formik.errors.email}</p>
-        )}
-      </div>
-
-      <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">Save Changes</button>
-    </form>
+          <Button type="submit" className="px-4 py-2 max-w-[362px]">Save</Button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

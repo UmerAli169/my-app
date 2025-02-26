@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { AuthButton } from "../common/AuthButton";
-import { AuthInput } from "../common/AuthInput";
+import { AuthInput } from "../../../views/ui/shared/Input";
 import { AuthModal } from "../common/AuthModal";
 
 interface ResetPasswordModalProps {

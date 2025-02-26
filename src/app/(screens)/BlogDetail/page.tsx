@@ -69,7 +69,7 @@ const BlogDetails = () => {
                   <img
                     src={section.image}
                     alt={section.heading}
-                    className="w-full h-auto max-h-[400px]   rounded-lg my-4"
+                    className="w-full h-auto max-h-[400px] object-cover   rounded-lg my-4"
                   />
                 )}
                 <p className="lg:text-[24px] text-[16px] font-bold text-[#383838]">{section.heading}</p>

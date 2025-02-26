@@ -5,7 +5,7 @@ import bestsellers from "../../../Data/header/BestSeller.json";
 
 const NavbarBestSellerDropdown = () => {
   return (
-    <div className="absolute left-0 top-full w-[800px] bg-white shadow-lg p-6 flex">
+    <div className="absolute left-0 top-full w-[800px] bg-white shadow-lg p-6 flex z-20">
       <div className="w-1/4 border-r pr-4">
         <ul className="space-y-2">
           {bestsellers.bestsellers.categories.map((category, index) => (

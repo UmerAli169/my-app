@@ -32,7 +32,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
 </Link>
 
       {hasSubmenu && (
-        <img src="/chevron.svg" alt="submenu" className="w-[12px] h-[12px] md:block sm:block hidden" />
+        <img src="/chevron.svg" alt="submenu" className="w-[12px] h-[12px] md:block sm:block hidden " />
       )}
 
       {isHovered && label === "SHOP ALL" && <NavbarShowAllDropDown />}

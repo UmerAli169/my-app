@@ -8,7 +8,7 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
-  return ( <div className='fixed inset-0 bg-[#697586] bg-opacity-10 flex items-center justify-center  '>
+  return ( <div className='fixed inset-0 bg-[#697586] bg-opacity-10 flex items-center justify-center  z-20'>
       <div className='bg-[#FFFFFF] rounded-[4px]  max-w-[957px]  relative py-[40px] px-[100px] flex flex-col items-center '>
         {close && (
           <img
