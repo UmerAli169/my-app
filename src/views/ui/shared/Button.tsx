@@ -1,13 +1,26 @@
-const Button = ({ children, className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>) => {
+import React from "react";
+import Link from "next/link";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: string; 
+}
+
+const Button: React.FC<ButtonProps> = ({ children, className, href, ...props }) => {
+  const baseStyles = "lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF] lg:text-[16px] text-[14px] font-normal rounded-[4px]";
+  
+  if (href) {
+    return (
+      <Link href={href} className={`${baseStyles} ${className || ""} inline-block text-center py-[8px] px-[10px]`}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      {...props}
-      className={`lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF]   lg:text-[16px] text-[14px]  font-normal rounded-[4px] ${className || ""}`}
-    >
+    <button {...props} className={`${baseStyles} ${className || ""} lg:p-[10px] px-[10px] py-[8px]`}>
       {children}
     </button>
   );
 };
 
 export default Button;
-// lg:p-[10px] px-[10px] py-[8px]

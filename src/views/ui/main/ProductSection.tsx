@@ -46,7 +46,7 @@ const ProductSection = ({ title, products,cardWidth }: any) => {
 
   return (
     <Wrapper>
-      <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] pt-[71px] relative">
+      <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] py-[71px] relative">
         <div className="text-center">
           <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">{title}</p>
           <p className="text-[16px] text-[#697586] font-normal">See All</p>
