@@ -5,7 +5,7 @@ const BlogDetails = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const blogPost = data.blogs.find((post) => post.id === id);
+  const blogPost = data.blogs.find((post:any) => post.id === id);
 
   if (!blogPost) {
     return <p className="text-center text-red-500">Blog not found</p>;

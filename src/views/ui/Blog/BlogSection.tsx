@@ -27,7 +27,7 @@ const FrameSection: React.FC<FrameSectionProps> = ({ productIndex, isImageFirst 
 
         <div className="flex flex-wrap gap-[6px]">
           {product.buttonLabels.map((label, index) => (
-            <Button key={index} className="max-w-[90px] rounded-[70px] text-[12px] bg-[#B4B0BE]/20 text-black">
+            <Button key={index} className="max-w-[90px] rounded-[70px] text-[12px]  lg:p-[10px] px-[8px]  px-[10px] bg-[#B4B0BE]/80 text-black">
               {label}
             </Button>
           ))}

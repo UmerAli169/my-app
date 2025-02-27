@@ -17,7 +17,7 @@ const Button: React.FC<ButtonProps> = ({ children, className, href, ...props }) 
   }
 
   return (
-    <button {...props} className={`${baseStyles} ${className || ""} lg:p-[10px] px-[10px] py-[8px]`}>
+    <button {...props} className={`${baseStyles} ${className || ""} `}>
       {children}
     </button>
   );
