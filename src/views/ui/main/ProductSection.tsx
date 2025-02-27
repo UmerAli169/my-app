@@ -11,13 +11,13 @@ interface ProductSectionProps {
   products: any[];
   cardWidth: number;
 }
-const ProductSection = ({ title, products,cardWidth }: any) => {
+const ProductSection = ({ title, products, cardWidth }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 320 * 4; 
+      const scrollAmount = 320 * 4;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -29,7 +29,7 @@ const ProductSection = ({ title, products,cardWidth }: any) => {
     const handleScroll = () => {
       if (scrollRef.current) {
         const scrollLeft = scrollRef.current.scrollLeft;
-        const cardWidth = 320; 
+        const cardWidth = 320;
         const visibleIndex = Math.round(scrollLeft / (cardWidth * 4));
         setCurrentIndex(visibleIndex);
       }
@@ -48,16 +48,20 @@ const ProductSection = ({ title, products,cardWidth }: any) => {
     <Wrapper>
       <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] py-[71px] relative">
         <div className="text-center">
-          <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">{title}</p>
-          <p className="text-[16px] text-[#697586] font-normal">See All</p>
+          <div className="flex gap-[10px]">
+            <img src="/svgs/Shared/ProductSection/leftflower.svg" alt="" />
+            <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">{title}</p>
+            <img src="/svgs/Shared/ProductSection/rightflower.svg" alt="" />
+          </div>
+          <p className="text-[16px] text-[#697586] font-normal hover:text-[#F5A3B7]">See All</p>
         </div>
 
-        <div className="w-full overflow-hidden relative lg:py-[30px] py-[20px]">
+        <div className="w-full  relative lg:py-[30px] py-[20px]">
           <button
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hidden lg:flex"
+            className="absolute left-[-20px] top-1/2 -translate-y-1/2  rounded-full hidden lg:flex"
             onClick={() => scroll("left")}
           >
-            <ChevronLeft size={24} />
+            <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="" />
           </button>
 
           <div ref={scrollRef} className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap">
@@ -69,10 +73,10 @@ const ProductSection = ({ title, products,cardWidth }: any) => {
           </div>
 
           <button
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg p-2 rounded-full hidden lg:flex"
+            className="absolute right-[-20px] top-1/2 -translate-y-1/2 rounded-full hidden lg:flex "
             onClick={() => scroll("right")}
           >
-            <ChevronRight size={24} />
+            <img src="/svgs/Shared/ProductSection/rightArrow.svg" alt="" />
           </button>
         </div>
 

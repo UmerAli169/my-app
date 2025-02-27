@@ -6,7 +6,7 @@
       "hasSubmenu": true
     },
     {
-      "label": "SHOPALL",
+      "label": "SHOP ALL",
       "enabled": true
     },
     {
@@ -18,7 +18,7 @@
       "enabled": true
     },
     {
-      "label": "ABOUTUS",
+      "label": "ABOUT US",
       "enabled": true,
       "hasSubmenu": true
     },
@@ -29,24 +29,24 @@
   ],
   "icons": [
     {
-      "img": "/search.svg",
+      "img": "/svgs/Dashboard/search.svg",
       "label": "Search"
     },
     {
-      "img": "/account.svg",
+      "img": "/svgs/Dashboard/account.svg",
       "label": "Account"
     },
     {
-      "img": "/cart.svg",
+      "img": "/svgs/Dashboard/cart.svg",
       "label": "Cart"
     }
   ],
   "mobileMenu": {
-    "img": "/hamburger.svg",
+    "img": "/svgs/Dashboard/hamburger.svg",
     "label": "MENU"
   },
   "closeMenu": {
-    "img": "/cross.svg",
+    "img": "/svgs/Shared/cross.svg",
     "label": "CLOSE"
   }
 }

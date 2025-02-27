@@ -15,26 +15,29 @@ interface ProductCardProps {
 }
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <CustomCard className="w-full">
+    <CustomCard className="w-full rounded-[6px] ">
       <img
         src={product.imageUrl}
         alt={product.name}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover rounded-[6px]"
       />
       <div className="px-[20px] py-[10px]">
         <p className="font-[poppins] text-[16px] text-[#383838]  font-medium hover:text-[#F5A3B7]" >{product.name}</p>
-        {product.rating && (
-        <div className="flex gap-1 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              size={16}
-              className={i < product.rating ? "text-yellow-500" : "text-gray-300"}
-              fill={i < product.rating ? "currentColor" : "none"}
-            />
-          ))}
-        </div>
-      )}
+        {product.rating !== undefined && (
+          <div className="flex items-center gap-1 mb-2">
+            {[...Array(5)].map((_, i) => (
+              <img
+                key={i}
+                src={i < product.rating ? "/svgs/Shared/ProductSection/cardStar.svg" : "/svgs/Shared/ProductSection/cardStar.svg"}
+                alt="star"
+                className="w-4 h-4"
+              />
+            ))}
+            <span className="text-[14px] text-[#383838] font-medium">({product.rating})</span>
+          </div>
+        )}
+
+
         <p className="font-[Montserrat] text-[14px] text-[#383838]  font-normal leading-[22px]">{product.description}</p>
         <div className="font-[Montserrat] text-[16px] text-[#383838]  font-normal ">{product.price}</div>
       </div>

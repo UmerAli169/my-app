@@ -13,8 +13,7 @@ function Dashboard() {
             <Wrapper>
                 <div className="lg:max-w-[562px] max-w-[212px] relative z-10">
                     <p className="lg:text-[36px] text-[18px] font-bold text-[#383838]">
-                        Discover your inner beauty with Blossom Glow Kit
-                    </p>
+                        Discover your inner beauty with Blossom Glow Kit                          </p>
                     <p className="lg:text-[24px] text-[14px] font-normal">
                         Great gift for yourself and loved ones
                     </p>

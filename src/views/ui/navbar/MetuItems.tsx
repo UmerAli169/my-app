@@ -20,7 +20,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
     >
       <Link
         href={
-          label.toLowerCase() === "aboutus"
+          label.toLowerCase() === "about us"
             ? "/AboutUs"
             : label.toLowerCase() === "blog"
               ? "/Blogs"
@@ -28,14 +28,14 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
         }
         className={`flex  w-full items-center ${enabled ? "text-black" : "text-gray-400"}`}
       >
-        <span className="text-[16px] text-[#383838] font-medium ">{label}</span>
+        <span className="text-[16px] text-[#383838] font-medium   whitespace-nowrap ">{label}</span>
       </Link>
 
       {hasSubmenu && (
         <img src="/chevron.svg" alt="submenu" className="w-[12px] h-[12px] md:block sm:block hidden " />
       )}
 
-      {isHovered && label === "SHOPALL" && <NavbarShowAllDropDown />}
+      {isHovered && label === "SHOP ALL" && <NavbarShowAllDropDown />}
       {isHovered && label === "BESTSELLERS" && <NavbarBestSellerDropdown  />}
     </li>
   );
