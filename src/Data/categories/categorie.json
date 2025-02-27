@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Double-Cleanse",
+      "slug": "double-cleanse",
+      "subcategories": [
+        {
+          "name": "Cleansing Balms",
+          "slug": "cleansing-balms",
+          "products": [
+            {
+              "id": 1,
+              "name": "Dewy Glow Jelly Cream",
+              "image": "/products/jelly-cream.jpg",
+              "description": "With Jeju Cherry Blossom",
+              "price": 32
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  
