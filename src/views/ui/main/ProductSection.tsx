@@ -2,7 +2,6 @@
 import { useRef, useState, useEffect } from "react";
 import Wrapper from "@/app/wrapper";
 import ProductCard from "../shared/ProductCard";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 
@@ -46,19 +45,19 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
 
   return (
     <Wrapper>
-      <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] py-[71px] relative">
+      <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] pt-[71px] relative">
         <div className="text-center">
           <div className="flex gap-[10px]">
             <img src="/svgs/Shared/ProductSection/leftflower.svg" alt="" />
             <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">{title}</p>
             <img src="/svgs/Shared/ProductSection/rightflower.svg" alt="" />
           </div>
-          <p className="text-[16px] text-[#697586] font-normal hover:text-[#F5A3B7]">See All</p>
+          <p className="text-[18px] text-[#697586] font-normal hover:text-[#F5A3B7]">See All</p>
         </div>
 
-        <div className="w-full  relative lg:py-[30px] py-[20px]">
+        <div className="w-full  relative lg:py-[30px] py-[20px] ">
           <button
-            className="absolute left-[-20px] top-1/2 -translate-y-1/2  rounded-full hidden lg:flex"
+            className="absolute left-[-20px] top-1/2 -translate-y-1/2  rounded-full hidden lg:flex z-[20]"
             onClick={() => scroll("left")}
           >
             <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="" />
@@ -73,7 +72,7 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
           </div>
 
           <button
-            className="absolute right-[-20px] top-1/2 -translate-y-1/2 rounded-full hidden lg:flex "
+            className="absolute right-[-20px] top-1/2 -translate-y-1/2 rounded-full hidden lg:flex  z-[20]"
             onClick={() => scroll("right")}
           >
             <img src="/svgs/Shared/ProductSection/rightArrow.svg" alt="" />
@@ -84,7 +83,7 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
           {Array.from({ length: totalDots }).map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-black" : "bg-gray-300"
+              className={`w-[10px] h-[10px] rounded-full ${index === currentIndex ? "bg-[#B0A6BD]" : "bg-[#DFE1E3]"
                 }`}
               onClick={() => {
                 if (scrollRef.current) {

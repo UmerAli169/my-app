@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, className, href, ...props }) => {
-  const baseStyles = "lg:w-full w-[179px] bg-[#F5A3B7] text-[#FFFFFF] lg:text-[16px] text-[14px] font-normal rounded-[4px]";
+  const baseStyles = "w-full bg-[#F5A3B7] text-[#FFFFFF] lg:text-[16px] text-[14px] font-normal rounded-[4px]";
   
   if (href) {
     return (

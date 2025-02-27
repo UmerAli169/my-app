@@ -2,7 +2,7 @@ import Button from "../shared/Button";
 
 const SkinQuiz = () => {
     return (
-        <div className=" py-[80px]">
+        <div className=" lg:py-[80px] pt-[71px] ">
             <div className="bg-[#FEE2E3]/30 flex items-center justify-center  lg:max-h-[226px]  h-full">
                 <div className="max-w-4xl flex flex-col md:flex-row items-center">
                     <img

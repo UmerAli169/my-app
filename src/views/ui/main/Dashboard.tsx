@@ -8,7 +8,7 @@ function Dashboard() {
             <img
                 src="/main.png"
                 alt="main"
-                className="absolute top-[12px]   inset-0 w-full h-full object-cover z-[1] overflow-hidden"
+                className="absolute top-[12px]   inset-0 lg:min-h-[500px] w-full h-full md:min-h-[300px]  object-cover object-top z-[1] overflow-hidden"
             />
             <Wrapper>
                 <div className="lg:max-w-[562px] max-w-[212px] relative z-10">

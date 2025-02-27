@@ -6,7 +6,7 @@ type ContainerProps = {
 };
 
 const wrapper: React.FC<ContainerProps> = ({ children }) => {
-  return (<div className={`px-[20px] container mx-auto `}>
+  return (<div className={`px-[20px] sm:px-0 container mx-auto `}>
     {children}
     </div>)
 };

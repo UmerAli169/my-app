@@ -22,8 +22,8 @@ const FrameSection: React.FC<FrameSectionProps> = ({ product, isImageFirst, butt
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center lg:pt-[60px] pt-[71px]">
       {isImageFirst && (
-        <div className="rounded-[6px] flex justify-center items-center">
-          <img src={product?.image} alt={product?.title} className="w-full h-auto max-h-[500px] object-cover" />
+        <div className=" flex justify-center items-center">
+          <img src={product?.image} alt={product?.title} className="w-full h-auto max-h-[500px] object-cover rounded-[6px]" />
         </div>
       )}
       <div className="rounded-[6px] flex flex-col gap-[30px]">
@@ -32,23 +32,23 @@ const FrameSection: React.FC<FrameSectionProps> = ({ product, isImageFirst, butt
         <p className="lg:text-[16px] text-[12px] font-normal text-[#697586]">{product.description}</p>
         <div className="flex flex-wrap gap-[6px]">
           {product?.buttonLabels?.map((label, index) => (
-            <Button key={index} className="max-w-[90px] rounded-[70px] text-[12px] py-[8px] bg-[#B4B0BE]/80 text-black">
+            <Button key={index} className="max-w-[90px] rounded-[70px] text-[12px] py-[8px]  bg-[rgba(180,176,190,0.2)] text-black">
               {label}
             </Button>
           ))}
         </div>
-        <div className="flex items-center gap-[10px] pb-[20px]">
+        <div className="flex items-center gap-[30px] pb-[20px]">
           <Button className={`max-w-[246px] lg:p-[10px] px-[10px] py-[8px] ${buttonClassName}`} href={`/BlogDetail `} >
             {product.shopNowText}</Button>
           <div className="flex items-center gap-[4px]">
             <Button className="max-w-[137px] bg-[#F9FAFC] text-black">{product.exploreMoreText}</Button>
-            <img src={product.exploreIcon} alt="" className="w-[12px]" />
+            <img src={product.exploreIcon} alt="" className="ml-[8px] w-[12px]" />
           </div>
         </div>
       </div>
       {!isImageFirst && (
         <div className="rounded-[6px] flex justify-center items-center">
-          <img src={product.image} alt={product.title} className="w-full h-auto max-h-[500px] object-cover" />
+          <img src={product.image} alt={product.title} className="w-full h-auto max-h-[500px] object-cover rounded-[6px]" />
         </div>
       )}
     </div>
