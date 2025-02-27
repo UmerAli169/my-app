@@ -1,4 +1,4 @@
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product }:any) => {
     return (
       <div className="border p-4">
         <img src={product.image} alt={product.name} className="w-full h-40 object-cover" />
@@ -11,4 +11,4 @@ const ProductCard = ({ product }) => {
   };
   
   export default ProductCard;
-  
+   

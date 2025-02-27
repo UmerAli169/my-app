@@ -1,27 +1,22 @@
+"use client"
 import Link from "next/link";
 import { useState } from "react";
-import categoriesData from "@/data/categories.json";
+import categoriesData from "../../Data/categories/categorie.json";
 
-const Sidebar = () => {
+
+export default function Sidebar() {
   return (
-    <div className="w-1/4 bg-gray-100 p-4">
-      <h2 className="text-lg font-bold">Shop All</h2>
-      {categoriesData.map((category) => (
-        <div key={category.name}>
-          <Link href={`/catalog/${category.slug}`} className="font-semibold">
-            {category.name}
-          </Link>
-          <ul className="ml-4">
-            {category.subcategories.map((sub) => (
-              <li key={sub.name}>
-                <Link href={`/catalog/${category.slug}/${sub.slug}`}>{sub.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+    <div className="w-1/4 p-4 bg-gray-100">
+      <h2 className="font-semibold mb-4">Categories</h2>
+      <ul>
+        {categoriesData.map((category) => (
+          <li key={category.slug} className="mb-2">
+            <Link href={`/screen/catalog/${category.slug}`} className="text-blue-500">
+              {category.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default Sidebar;
+}
