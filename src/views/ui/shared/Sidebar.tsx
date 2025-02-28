@@ -20,7 +20,7 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
 
   const toggleSection = (event: React.MouseEvent, section: string) => {
-    event.preventDefault(); // Prevent navigation when clicking the toggle
+    event.preventDefault(); 
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
@@ -28,7 +28,7 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
   };
 
   return (
-    <div className="lg:min-w-[250px] bg-[#FFFFFF] rounded-[6px] py-[20px] px-[30px]">
+    <div className="md:max-w-[250px] w-full bg-[#FFFFFF] rounded-[6px] py-[20px] px-[30px]">
       {title && <h2 className="text-[24px] font-bold text-[#383838] mb-4">{title}</h2>}
 
       <ul className="space-y-[20px]">
@@ -53,7 +53,7 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
         return (
           <div key={section.key} className="mt-6">
             <div
-              className={`hover:text-[#E49BAE] font-semibold flex items-center justify-between cursor-pointer ${isActive ? "text-[#F5A3B7]" : "text-[#383838]"
+              className={`hover:text-[#E49BAE] text-[16px] leading-[24px] font-medium flex items-center justify-between cursor-pointer ${isActive ? "text-[#F5A3B7]" : "text-[#697586]"
                 }`}
             >
               <Link href={section.href || "#"}>{section.title}</Link>
@@ -64,10 +64,10 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
             </div>
 
             {openSections[section.key] && (
-              <ul className="space-y-2 mt-2">
+              <ul className="space-y-[10px] mt-2">
                 {section.items.map((item, idx) => (
                   <li key={idx}>
-                    <Link href={item.href} className="text-[16px] text-[#383838] block hover:text-[#E49BAE]">
+                    <Link href={item.href} className="text-[14px] leading-[21px] font-normal text-[#697586] hover:text-[#E49BAE]  ">
                       {item.label}
                     </Link>
                   </li>

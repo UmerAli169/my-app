@@ -7,11 +7,14 @@ const AccountLayout = ({ children }: { children: ReactNode }) => {
     <div className="py-[40px]">
       <Wrapper>
         <div className="flex md:flex-row flex-col gap-[20px]">
-          <div className="w-[250px] max-h-[80vh] overflow-y-auto">
+          <div className="lg:w-[250px] w-full max-h-[80vh] overflow-y-auto">
             <Sidebar
               title="Account"
               links={[
-                { label: "Contact Information", href: "/Account/contactinformation" },
+                {
+                  label: "Contact Information",
+                  href: "/Account/contactinformation",
+                },
                 { label: "Change Password", href: "/Account/changepassword" },
                 { label: "Addresses", href: "/Account/addresses" },
               ]}
@@ -22,10 +25,22 @@ const AccountLayout = ({ children }: { children: ReactNode }) => {
                   href: "/Account/orders",
                   items: [
                     { label: "All period", href: "/account/orders?filter=all" },
-                    { label: "For this month", href: "/account/orders?filter=this-month" },
-                    { label: "Last month", href: "/account/orders?filter=last-month" },
-                    { label: "This year", href: "/account/orders?filter=this-year" },
-                    { label: "Last year", href: "/account/orders?filter=last-year" },
+                    {
+                      label: "For this month",
+                      href: "/account/orders?filter=this-month",
+                    },
+                    {
+                      label: "Last month",
+                      href: "/account/orders?filter=last-month",
+                    },
+                    {
+                      label: "This year",
+                      href: "/account/orders?filter=this-year",
+                    },
+                    {
+                      label: "Last year",
+                      href: "/account/orders?filter=last-year",
+                    },
                   ],
                 },
                 {
@@ -33,11 +48,26 @@ const AccountLayout = ({ children }: { children: ReactNode }) => {
                   title: "Wishlist",
                   href: "/Account/wishlist",
                   items: [
-                    { label: "All period", href: "/Account/wishlist?filter=all" },
-                    { label: "For this month", href: "/account/wishlist?filter=this-month" },
-                    { label: "Last month", href: "/account/wishlist?filter=last-month" },
-                    { label: "This year", href: "/account/wishlist?filter=this-year" },
-                    { label: "Last year", href: "/account/wishlist?filter=last-year" },
+                    {
+                      label: "All period",
+                      href: "/Account/wishlist?filter=all",
+                    },
+                    {
+                      label: "For this month",
+                      href: "/account/wishlist?filter=this-month",
+                    },
+                    {
+                      label: "Last month",
+                      href: "/account/wishlist?filter=last-month",
+                    },
+                    {
+                      label: "This year",
+                      href: "/account/wishlist?filter=this-year",
+                    },
+                    {
+                      label: "Last year",
+                      href: "/account/wishlist?filter=last-year",
+                    },
                   ],
                 },
               ]}

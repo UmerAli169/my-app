@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import NavbarShowAllDropDown from "../DropdownMenu/NavbarShowAllDropDown";
-import NavbarBestSellerDropdown from "../DropdownMenu/NavbarBestSellerDropdown";
+import NavbarShowAllDropDown from "../OverlayMenu/NavbarShowAllDropDown";
+import NavbarBestSellerDropdown from "../OverlayMenu/NavbarBestSellerDropdown";
 
 interface MenuItemProps {
   label: string;
@@ -30,7 +30,11 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
         }
         className={`flex w-full items-center ${enabled ? "text-black" : "text-gray-400"}`}
       >
-        <span className="text-[16px] text-[#383838] font-medium whitespace-nowrap">{label}</span>
+<span className="relative text-[16px] text-[#383838] hover:text-[#F5A3B7] font-medium whitespace-nowrap 
+  after:content-[''] after:absolute after:left-0 after:bottom-[-22px] after:w-full after:h-[2px] after:bg-[#F5A3B7] after:opacity-0 hover:after:opacity-100 hover:after:h-[4px]">
+  {label}
+</span>
+
       </Link>
 
 

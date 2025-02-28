@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
+import Button from "./Button";
 
 export default function Filters() {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
@@ -16,85 +17,125 @@ export default function Filters() {
   };
 
   return (
-    <div className="w-[250px] bg-white p-4 border rounded-lg shadow-md">
-      <h2 className="text-lg font-bold flex items-center gap-1">
-        FILTERS <span className="text-red-500">*</span>
-      </h2>
-
-      {/* Product Type */}
-      <div className="border-b py-2">
-        <button
-          className="w-full flex justify-between items-center text-gray-700"
-          onClick={() => toggleSection("productType")}
-        >
-          Product Type
-          {openSections.productType ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </button>
+    <div className="md:max-w-[250px] w-full bg-[#FFFFFF] p-[20px]  rounded-[6px] flex flex-col gap-[10px] ">
+      <div>
+        <p className="text-[24px] leading-[36px] text-[#383838] font-bold flex items-center gap-1">
+          FILTERS
+        </p>{" "}
       </div>
 
-      {/* Ingredient Type */}
-      <div className="border-b py-2">
-        <button
-          className="w-full flex justify-between items-center text-gray-700"
-          onClick={() => toggleSection("ingredientType")}
-        >
-          Ingredient Type
-          {openSections.ingredientType ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </button>
-      </div>
+      <div>
+        <div className="border-b py-2   text-[#383838] text-[14px] leading-[21px] font-semibold">
+          <button
+            className="w-full flex justify-between items-center text-[#383838] text-[14px] leading-[21px] font-semibold"
+            onClick={() => toggleSection("productType")}
+          >
+            <div className=" text-[#383838] text-[14px] leading-[21px] font-normal">
+              Product Type
+            </div>
+            {openSections.productType ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </button>
+        </div>
 
-      {/* Skin Type */}
-      <div className="border-b py-2">
-        <button
-          className="w-full flex justify-between items-center text-gray-700"
-          onClick={() => toggleSection("skinType")}
-        >
-          Skin Type <span className="text-red-500">*</span>
-          {openSections.skinType ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </button>
-        {openSections.skinType && (
-          <div className="mt-2 space-y-2">
-            {["All", "Combination/Oily", "Dry", "Normal", "Sensitive"].map((type) => (
-              <label key={type} className="flex items-center gap-2 text-gray-700">
-                <input type="checkbox" className="w-4 h-4" />
-                {type}
-              </label>
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="border-b py-2  text-[#383838] text-[14px] leading-[21px] font-semibold">
+          <button
+            className="w-full flex justify-between items-center text-gray-700"
+            onClick={() => toggleSection("ingredientType")}
+          >
+            <div className=" text-[#383838] text-[14px] leading-[21px] font-normal">
+              Ingredient Type
+            </div>
+            {openSections.ingredientType ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </button>
+        </div>
 
-      {/* Price Range */}
-      <div className="border-b py-2">
-        <button
-          className="w-full flex justify-between items-center text-gray-700"
-          onClick={() => toggleSection("priceRange")}
-        >
-          Price Range <span className="text-red-500">*</span>
-          {openSections.priceRange ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </button>
-        {openSections.priceRange && (
-          <div className="mt-2 space-y-2">
-            {["Under $25", "$25 - $50", "$50 - $100"].map((range) => (
-              <label key={range} className="flex items-center gap-2 text-gray-700">
+        <div className="border-b py-2  text-[#383838] text-[14px] leading-[21px] font-semibold">
+          <button
+            className="w-full flex justify-between items-center text-gray-700"
+            onClick={() => toggleSection("skinType")}
+          >
+            <div className=" text-[#383838] text-[14px] leading-[21px] font-normal">
+              Skin Type{" "}
+            </div>
+            {openSections.skinType ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </button>
+          {openSections.skinType && (
+            <div className="mt-2 space-y-2 text-[#383838] text-[16px] leading-[21px] font-normal">
+              {["All", "Combination/Oily", "Dry", "Normal", "Sensitive"].map(
+                (type) => (
+                  <label
+                    key={type}
+                    className="flex items-center gap-2 text-gray-700"
+                  >
+                    <input type="checkbox" className="w-4 h-4" />
+                    {type}
+                  </label>
+                )
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="border-b py-2  text-[#383838] text-[14px] leading-[21px] font-semibold">
+          <button
+            className="w-full flex justify-between items-center text-gray-700"
+            onClick={() => toggleSection("priceRange")}
+          >
+            <div className=" text-[#383838] text-[16px] leading-[21px] font-normal">
+              Price Range{" "}
+            </div>
+            {openSections.priceRange ? (
+              <ChevronUp size={18} />
+            ) : (
+              <ChevronDown size={18} />
+            )}
+          </button>
+          {openSections.priceRange && (
+            <div className="mt-2 space-y-2 text-[#383838] text-[16px] leading-[21px] font-normal">
+              {["Under $25", "$25 - $50", "$50 - $100"].map((range) => (
+                <label
+                  key={range}
+                  className="flex items-center gap-2 text-gray-700"
+                >
+                  <input type="radio" name="price" className="w-4 h-4" />
+                  {range}
+                </label>
+              ))}
+              <label className="flex items-center gap-2 text-gray-700">
                 <input type="radio" name="price" className="w-4 h-4" />
-                {range}
+                <input
+                  type="text"
+                  placeholder="$ Min"
+                  className="border p-1 w-16 text-center text-sm rounded"
+                />
+                <input
+                  type="text"
+                  placeholder="$ Max"
+                  className="border p-1 w-16 text-center text-sm rounded"
+                />
               </label>
-            ))}
-            {/* Custom Price Range */}
-            <label className="flex items-center gap-2 text-gray-700">
-              <input type="radio" name="price" className="w-4 h-4" />
-              <input type="text" placeholder="$ Min" className="border p-1 w-16 text-center text-sm rounded" />
-              <input type="text" placeholder="$ Max" className="border p-1 w-16 text-center text-sm rounded" />
-            </label>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
 
-      {/* Apply Button */}
-      <button className="w-full mt-4 py-2 bg-gray-100 border rounded hover:bg-gray-200">
-        Apply
-      </button>
+      <div>
+        <Button className="lg:p-[10px] px-[10px] py-[8px] bg-white text-black border border-black hover:bg-black hover:text-white">
+          Apply
+        </Button>
+      </div>
     </div>
   );
 }
