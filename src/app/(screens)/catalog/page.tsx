@@ -42,11 +42,11 @@ const CatalogPage = () => {
           <div className="flex justify-between items-center ">
             <p className="text-gray-600">{totalProducts} Products</p>
             <div>
-              <label className="mr-2 text-gray-600">Sort By:</label>
+              <label className="mr-[12px] text-gray-600">Sort By</label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="border rounded"
+                className="p-[10px] rounded"
               >
                 <option value="relevance">Relevance</option>
                 <option value="lowest">Lowest Price</option>

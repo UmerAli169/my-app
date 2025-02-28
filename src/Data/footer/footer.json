@@ -34,13 +34,12 @@
       }
     ],
     "newsletter": {
-      "title": "SIGN UP FOR NEWS",
-      "description": "Stay informed, subscribe to our newsletter!"
+      "title": "SIGN UP FOR EMAILS",
+      "description": "Stay informed, subscribe to our newsletter now!"
     },
     "bottom": {
       "copyright": "© 2023 Bloom Beauty",
       "policies": [
-        { "label": "Privacy Policy", "href": "/privacy" },
         { "label": "Terms and Conditions", "href": "/terms" }
       ]
     }
