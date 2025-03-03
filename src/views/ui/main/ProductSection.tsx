@@ -2,14 +2,8 @@
 import { useRef, useState, useEffect } from "react";
 import Wrapper from "@/app/wrapper";
 import ProductCard from "../shared/ProductCard";
+import { CartModal } from "../model/RightModal";
 
-
-
-interface ProductSectionProps {
-  title: string;
-  products: any[];
-  cardWidth: number;
-}
 const ProductSection = ({ title, products, cardWidth }: any) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,17 +36,27 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
   }, []);
 
   const totalDots = Math.ceil(products.length / 4);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
 
+  const addToCart = (product: any) => {
+    setCartItems((prev) => [...prev, product]);
+    setIsCartOpen(true);
+  };
   return (
     <Wrapper>
       <div className="flex flex-col items-center justify-center w-full lg:pt-[83.5px] pt-[71px] relative">
         <div className="text-center">
           <div className="flex gap-[10px]">
             <img src="/svgs/Shared/ProductSection/leftflower.svg" alt="" />
-            <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">{title}</p>
+            <p className="lg:text-[24px] text-[20px] text-[#383838] font-bold">
+              {title}
+            </p>
             <img src="/svgs/Shared/ProductSection/rightflower.svg" alt="" />
           </div>
-          <p className="text-[18px] text-[#697586] font-normal hover:text-[#F5A3B7]">See All</p>
+          <p className="text-[18px] text-[#697586] font-normal hover:text-[#F5A3B7]">
+            See All
+          </p>
         </div>
 
         <div className="w-full  relative lg:py-[30px] py-[20px] ">
@@ -63,12 +67,25 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
             <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="" />
           </button>
 
-          <div ref={scrollRef} className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap">
-            {products.map((product: any) => (
-              <div key={product.id} style={{ maxWidth: `${cardWidth}px`, width: "100%" }} className="shrink-0">
-                <ProductCard product={product} />
+          <div
+            ref={scrollRef}
+            className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap"
+          >
+            {products.map((product: any, index: number) => (
+              <div
+                key={`${product.id}-${index}`}
+                style={{ maxWidth: `${cardWidth}px`, width: "100%" }}
+                className="shrink-0"
+              >
+                <ProductCard product={product} addToCart={addToCart} />
               </div>
             ))}
+
+            <CartModal
+              isOpen={isCartOpen}
+              onClose={() => setIsCartOpen(false)}
+              cartItems={cartItems}
+            />
           </div>
 
           <button
@@ -83,8 +100,9 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
           {Array.from({ length: totalDots }).map((_, index) => (
             <button
               key={index}
-              className={`w-[10px] h-[10px] rounded-full ${index === currentIndex ? "bg-[#B0A6BD]" : "bg-[#DFE1E3]"
-                }`}
+              className={`w-[10px] h-[10px] rounded-full ${
+                index === currentIndex ? "bg-[#B0A6BD]" : "bg-[#DFE1E3]"
+              }`}
               onClick={() => {
                 if (scrollRef.current) {
                   scrollRef.current.scrollTo({
