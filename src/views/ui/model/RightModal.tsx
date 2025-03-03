@@ -33,13 +33,22 @@ export const CartModal: React.FC<CartModalProps> = ({
           ✕
         </button>
       </div>
-<img src="/svgs/cart/stright.svg" alt="" />
+      <img src="/svgs/cart/stright.svg" alt="" />
       {cartItems.length > 0 ? (
         <div>
           {cartItems.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
-          {/* <SampleSelection /> */}
+          <SampleSelection />
+          <div className="mt-4 border-t pt-4">
+            <div className="flex justify-between text-lg font-semibold">
+              <span>Subtotal</span>
+              <span>${"122$"}</span>
+            </div>
+            <button className="w-full bg-pink-500 text-white py-2 mt-4 rounded">
+              Check Out
+            </button>
+          </div>
         </div>
       ) : (
         <p className="text-gray-500">Your cart is empty.</p>
