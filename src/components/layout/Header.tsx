@@ -21,7 +21,7 @@ const Header = () => {
   const [activeModal, setActiveModal] = useState<
     "login" | "register" | "recover" | "reset" | null
   >(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 

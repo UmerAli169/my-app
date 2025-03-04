@@ -1,4 +1,4 @@
-import AboutSection from "../../views/ui/About/AboutSection";
+import AboutSection from "../../views/ui/about/AboutSection";
 import aboutData from "../../Data/about/aboutData.json";
 import Sidebar from "../../views/ui/shared/Sidebar";
 import Wrapper from "@/app/wrapper";

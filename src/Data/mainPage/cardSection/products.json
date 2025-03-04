@@ -1,4 +1,14 @@
 {
+  "sections": [
+    {
+      "title": "Recently Viewed Products",
+      "products": "newArrivals"
+    },
+    {
+      "title": "You May Also Like",
+      "products": "bestSellers"
+    }
+  ],
   "newArrivals": [
     {
       "id": 1,
@@ -7,7 +17,7 @@
       "price": "$25",
       "rating": 4,
       "imageUrl": "/Productcard.png",
-      "discount": 10
+      "discount": 30
     },
     {
       "id": 2,

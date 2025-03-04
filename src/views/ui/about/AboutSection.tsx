@@ -7,7 +7,7 @@ interface SectionProps {
 
 const AboutSection: React.FC<SectionProps> = ({ title, items }) => {
   return (
-    <div className=" py-[20px] px-[30px]  bg-[#FFFFFF] ">
+    <div className=" py-[20px] px-[30px]   ">
       <p className="lg:text-[24px] text-[20px] font-bold text-[#383838] ">
         {title}
       </p>

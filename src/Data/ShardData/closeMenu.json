@@ -1,6 +1,6 @@
 {  
   "closeMenu": {  
-    "img": "/cross.svg",  
+    "img": "/svgs/Shared/cross/cross.svg",  
     "label": "CLOSE"  
   }  
 }
