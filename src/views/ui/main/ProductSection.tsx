@@ -69,7 +69,7 @@ const ProductSection = ({ title, products, cardWidth }: any) => {
 
           <div
             ref={scrollRef}
-            className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap"
+            className="flex gap-[20px] overflow-x-scroll scrollbar-hide flex-nowrap relative"
           >
             {products.map((product: any, index: number) => (
               <div

@@ -10,16 +10,19 @@ function page() {
     <div className="py-[40px] ">
       <ProductDetails />
       <ReviewSection />
-      <ProductSection
-        title="Recently Viewed Products"
-        products={productsData.newArrivals}
-        cardWidth={289}
-      />
-      <ProductSection
-        title="You May Also Like"
-        products={productsData.bestSellers}
-        cardWidth={289}
-      />
+      {productsData.sections.map((section) => {
+  const products = productsData[section.products as keyof typeof productsData];
+  return (
+    <ProductSection
+      key={section.title}
+      title={section.title}
+      products={products}
+      cardWidth={289}
+    />
+  );
+})}
+
+
     </div>
   );
 }

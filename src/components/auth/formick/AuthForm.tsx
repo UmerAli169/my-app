@@ -1,17 +1,26 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
+import React from "react";
+import { Formik, Form } from "formik";
 
 interface AuthFormProps {
-  initialValues: Record<string, string>;
+  initialValues: Record<string, any>; // Updated to accept any type (including FileList)
   validationSchema: any;
-  onSubmit: (values: Record<string, string>, actions: any) => void;
+  onSubmit: (values: Record<string, any>, actions: any) => void;
   children: React.ReactNode;
 }
 
-export const AuthForm = ({ initialValues, validationSchema, onSubmit, children }: AuthFormProps) => {
+export const AuthForm = ({
+  initialValues,
+  validationSchema,
+  onSubmit,
+  children,
+}: AuthFormProps) => {
   return (
-    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-      {({ isSubmitting }) => <Form className='flex flex-col gap-4'>{children}</Form>}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      {({ isSubmitting }) => <Form className="flex flex-col gap-4">{children}</Form>}
     </Formik>
   );
 };

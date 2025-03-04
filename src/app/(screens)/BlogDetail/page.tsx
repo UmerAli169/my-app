@@ -1,16 +1,16 @@
-"use client"
-import BlogSection from '@/views/ui/main/BlogSection';
-import data from '../../../Data/blog/blogdetails.json';
-import Wrapper from '@/app/wrapper';
-import Button from '@/views/ui/shared/Button';
-import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
+"use client";
+import BlogSection from "@/views/ui/main/BlogSection";
+import data from "../../../Data/blog/blogdetails.json";
+import Wrapper from "@/app/wrapper";
+import Button from "@/views/ui/shared/Button";
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 const BlogDetails = () => {
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: 'https://facebook.com' },
-    { icon: <Twitter size={20} />, href: 'https://twitter.com' },
-    { icon: <Instagram size={20} />, href: 'https://instagram.com' },
+    { icon: <Facebook size={20} />, href: "https://facebook.com" },
+    { icon: <Twitter size={20} />, href: "https://twitter.com" },
+    { icon: <Instagram size={20} />, href: "https://instagram.com" },
   ];
   const blogPost = data.blogs.find((post) => true);
 
@@ -20,7 +20,6 @@ const BlogDetails = () => {
 
   return (
     <>
-
       <Wrapper>
         <img
           src={blogPost.image}
@@ -46,18 +45,21 @@ const BlogDetails = () => {
               ))}
             </div>
           </div>
-
         </div>
 
-
-
         <div className=" pt-[80px]  space-y-[10px]">
-          <h1 className="lg:text-[36px] text-[18px] font-medium text-[#383838]">{blogPost.title}</h1>
-          <p className="lg:text-[16px] text-[12px] font-normal text-[#697586]">{blogPost.description}</p>
-          <div >
-            Tags:
-          </div>{blogPost.tags?.map((label, index) => (
-            <Button key={index} className="max-w-[90px] rounded-[70px] text-[12px] bg-[#B4B0BE]/80 lg:p-[10px] py-[8px] px-[10px] text-black mx-[2px]">
+          <h1 className="lg:text-[36px] text-[18px] font-medium text-[#383838]">
+            {blogPost.title}
+          </h1>
+          <p className="lg:text-[16px] text-[12px] font-normal text-[#697586]">
+            {blogPost.description}
+          </p>
+          <div>Tags:</div>
+          {blogPost.tags?.map((label, index) => (
+            <Button
+              key={index}
+              className="max-w-[90px] rounded-[70px] text-[12px] bg-[#B4B0BE]/80 lg:p-[10px] py-[8px] px-[10px] text-black mx-[2px]"
+            >
               {label}
             </Button>
           ))}
@@ -72,18 +74,19 @@ const BlogDetails = () => {
                     className="w-full h-auto max-h-[400px] object-cover   rounded-lg my-4"
                   />
                 )}
-                <p className="lg:text-[24px] text-[16px] font-bold text-[#383838]">{section.heading}</p>
-                <p className="lg:text-[16px] text-[12px] font-normal text-[#697586]">{section.content}</p>
-
+                <p className="lg:text-[24px] text-[16px] font-bold text-[#383838]">
+                  {section.heading}
+                </p>
+                <p className="lg:text-[16px] text-[12px] font-normal text-[#697586]">
+                  {section.content}
+                </p>
               </div>
             ))}
           </div>
-
         </div>
-      </Wrapper><BlogSection />
-
+      </Wrapper>
+      <BlogSection />
     </>
-
   );
 };
 

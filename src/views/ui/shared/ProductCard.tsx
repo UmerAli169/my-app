@@ -20,8 +20,8 @@ interface ProductCardProps {
   addToCart: (product: Product) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product,addToCart }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
+  const [isHovered, setIsHovered] = useState(true);
   const [liked, setLiked] = useState(false);
 
   const router = useRouter();
@@ -31,18 +31,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product,addToCart }) => {
     router.push("ProductDetails");
     // router.push(`/product/${product.id}`);
   };
-  
 
   return (
     <>
       <CustomCard
-        className="w-full rounded-[6px] cursor-pointer pointer-events-auto"
+        className="w-full rounded-[6px] cursor-pointer pointer-events-auto relative"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleRedirect}
       >
         {product.discount && (
-          <div className="absolute top-[60px] left-[1px] bg-[#F5A3B7] rounded-r-full text-white text-[12px] font-bold px-3 py-1 flex items-center justify-center min-w-[60px]">
+          <div className="absolute top-[30px] left-[1px] bg-[#F5A3B7] rounded-r-full text-white text-[12px] font-bold px-3 py-1 flex items-center justify-center min-w-[60px] z-10">
             -{product.discount}%
           </div>
         )}
@@ -77,7 +76,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product,addToCart }) => {
         <div className="px-[20px] py-[10px]">
           <div className="flex flex-col gap-[10px]">
             <p className="font-[poppins] text-[20px] text-[#383838] font-semibold hover:text-[#F5A3B7]">
-              {product.name}
+              {product.name}ß
             </p>
 
             {product.rating !== undefined && (
@@ -118,7 +117,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product,addToCart }) => {
           </div>
         </div>
       </CustomCard>
-   
     </>
   );
 };
