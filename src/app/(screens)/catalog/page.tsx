@@ -73,28 +73,32 @@ const CatalogPage = () => {
             />
           </div>
           <div className="flex flex-col items-center my-[20px] gap-[10px]">
-            <button className="text-[#383838] text-[14px] font-semibold  ">
-              Show More ↓
-            </button>
-            <div className="flex  items-center gap-[20px] mt-2">
+            <div className="flex items-center gap-2">
+              <button className="text-[#383838] text-[14px] font-medium">
+                Show More
+              </button>
+              <img src="/svgs/seemore/arrow.svg" alt="" />
+            </div>
+
+            <div className="flex items-center gap-[20px] mt-2">
               <div className="w-[20px]">
                 <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="" />
               </div>
-              <button className="text-[#383838] text-[16px] font-regular  leading-[24px]">
+              <button className="text-[#383838] text-[16px] font-regular leading-[24px]">
                 1
               </button>
-              <button className="text-[#383838] text-[16px] font-regular  leading-[24px]">
+              <button className="text-[#383838] text-[16px] font-regular leading-[24px]">
                 2
               </button>
-              <span className="text-[#383838] text-[16px] font-regular  leading-[24px]">
+              <span className="text-[#383838] text-[16px] font-regular leading-[24px]">
                 ...
               </span>
-              <button className="text-[#383838] text-[16px] font-regular  leading-[24px]">
+              <button className="text-[#383838] text-[16px] font-regular leading-[24px]">
                 7
               </button>
               <div className="w-[20px]">
                 <img src="/svgs/Shared/ProductSection/rightArrow.svg" alt="" />
-              </div>{" "}
+              </div>
             </div>
           </div>
         </main>

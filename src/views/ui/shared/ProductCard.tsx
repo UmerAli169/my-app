@@ -75,7 +75,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
 
         <div className="px-[20px] py-[10px]">
           <div className="flex flex-col gap-[10px]">
-            <p className="font-[poppins] text-[20px] text-[#383838] font-semibold hover:text-[#F5A3B7]">
+            <p className="font-[poppins] text-[16px] leading-[24px] text-[#383838] font-medium   hover:text-[#F5A3B7]">
               {product.name}ß
             </p>
 
@@ -95,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
               </div>
             )}
 
-            <p className="font-[Montserrat] text-[14px] text-[#383838] font-normal leading-[22px]">
+            <p className="font-[Montserrat] text-[14px] text-[#697586] font-normal leading-[22px]">
               {product.description}
             </p>
 
@@ -116,7 +116,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
             </Button>
           </div>
         </div>
+        
       </CustomCard>
+
+      
     </>
   );
 };

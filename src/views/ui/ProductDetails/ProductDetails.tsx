@@ -1,52 +1,58 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Button from "../shared/Button";
 import data from "../../../Data/blogDetails/details.json";
 import Wrapper from "@/app/wrapper";
 import AboutSection from "../../../views/ui/about/AboutSection";
 import Accordion from "../about/Accordion";
+import { CartModal } from "../model/RightModal";
 
 const ProductDetails = () => {
   const product = data.products[0];
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [cartItems, setCartItems]: any = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth / 2; 
+      const scrollAmount = clientWidth / 2;
       scrollRef.current.scrollTo({
-        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        left:
+          direction === "left"
+            ? scrollLeft - scrollAmount
+            : scrollLeft + scrollAmount,
         behavior: "smooth",
       });
     }
   };
-
+  const addToCart = () => {
+    setCartItems([...cartItems, product]);
+    setIsCartOpen(true);
+  };
   return (
     <Wrapper>
       <div className="flex flex-col md:flex-row gap-[123px]">
-        {/* Product Image & Thumbnails */}
         <div className="flex flex-col items-center w-full md:w-1/2 relative">
-        <button
-              className="absolute left-[-20px] top-1/3 -translate-y-1/2 rounded-full hidden lg:flex z-[10]"
-              onClick={() => scroll("left")}
-            >
-              <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="left" />
-            </button>
+          <button
+            className="absolute left-[-20px] top-1/3 -translate-y-1/2 rounded-full hidden lg:flex z-[10]"
+            onClick={() => scroll("left")}
+          >
+            <img src="/svgs/Shared/ProductSection/leftArrow.svg" alt="left" />
+          </button>
           <img
             src={product.imageUrl}
             alt={product.name}
             className="w-full object-cover"
           />
- <button
-              className="absolute right-[-20px] top-1/3 -translate-y-1/2 rounded-full hidden lg:flex z-[10]"
-              onClick={() => scroll("right")}
-            >
-              <img src="/svgs/Shared/ProductSection/rightArrow.svg" alt="right" />
-            </button>
+          <button
+            className="absolute right-[-20px] top-1/3 -translate-y-1/2 rounded-full hidden lg:flex z-[10]"
+            onClick={() => scroll("right")}
+          >
+            <img src="/svgs/Shared/ProductSection/rightArrow.svg" alt="right" />
+          </button>
           <div className="w-full relative lg:py-[30px] py-[20px]">
-           
-
             <div
               ref={scrollRef}
               className="flex mt-[20px] gap-[20px] overflow-x-auto scrollbar-hide"
@@ -60,8 +66,6 @@ const ProductDetails = () => {
                 />
               ))}
             </div>
-
-           
           </div>
         </div>
 
@@ -104,14 +108,26 @@ const ProductDetails = () => {
 
           {/* Add to Cart & Wishlist */}
           <div className="flex items-center gap-[10px]">
-            <Button className="max-w-[246px] w-full py-[10px] px-[80px] text-[14px] font-bold text-[#383838] lg:leading-[21px] leading-[18px]">
+            <Button
+              className="max-w-[246px] w-full py-[10px] px-[80px] text-[14px] font-bold text-[#383838] lg:leading-[21px] leading-[18px]"
+              onClick={addToCart}
+            >
               Add To Cart
             </Button>
             <img src="/svgs/Shared/ProductSection/heart.svg" alt="wishlist" />
           </div>
+          <CartModal
+            isOpen={isCartOpen}
+            onClose={() => setIsCartOpen(false)}
+            cartItems={cartItems}
+          />
 
           {data.shipping.items.map((item, index) => (
-            <Accordion key={index} question={item.question} answer={item.answer} />
+            <Accordion
+              key={index}
+              question={item.question}
+              answer={item.answer}
+            />
           ))}
         </div>
       </div>

@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import MenuItem from "../../views/ui/navbar/MetuItems";
 import navbar from "../../Data/header/navbar.json";
 import ModalManager from "../auth/modals/ModalManager";
+import { CartModal } from "../../views/ui/model/RightModal";
+import Link from "next/link";
 
 const Header = () => {
   const router = useRouter();
@@ -21,9 +23,11 @@ const Header = () => {
   const [activeModal, setActiveModal] = useState<
     "login" | "register" | "recover" | "reset" | null
   >(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
     setMenuItems(navbar.menuItems);
@@ -48,13 +52,13 @@ const Header = () => {
         <Wrapper>
           {isSearchActive ? (
             <div className="flex justify-center py-[16px] ">
-              <div className="flex items-center bg-[#DBDBEA]  gap-2 border-gray-300 rounded-lg px-2 py-1 w-full w-full">
+              <div className="flex items-center bg-[#DBDBEA]  gap-2 border-gray-300 rounded-lg px-2 py-1 w-full">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search"
-                  className="w-full outline-none text-sm bg-[#DBDBEA]  text-gray-700 py-[15px]"
+                  className="w-full outline-none text-sm bg-[#DBDBEA] text-gray-700 py-[15px]"
                 />
                 <div
                   className="w-[14px] mr-[15px] filter brightness-0"
@@ -78,9 +82,12 @@ const Header = () => {
                 </button>
               </div>
 
-              <p className="text-[#383838] text-[24px] font-medium leading-[25px]">
+              <Link
+                className="text-[#383838] text-[24px] font-medium leading-[25px]"
+                href={"/"}
+              >
                 <span className="text-[#F5A3B7]">Bloom </span>Beauty
-              </p>
+              </Link>
 
               <div className="hidden lg:flex items-center">
                 <ul className="flex gap-[40px]">
@@ -106,6 +113,8 @@ const Header = () => {
                         handleAccountClick();
                       } else if (label.toLowerCase() === "search") {
                         setIsSearchActive(true);
+                      } else if (label.toLowerCase() === "cart") {
+                        setIsCartOpen(true); // Opens Cart Modal ✅
                       }
                     }}
                   >
@@ -121,6 +130,14 @@ const Header = () => {
         </Wrapper>
       </nav>
 
+      {/* Cart Modal ✅ */}
+      <CartModal
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={[]}
+      />
+
+      {/* Authentication Modal Manager */}
       <ModalManager
         activeModal={activeModal}
         closeModal={closeModal}
