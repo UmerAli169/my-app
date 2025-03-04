@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CartItem } from "@/components/cart/Items";
 import { SampleSelection } from "@/components/cart/sample";
+import Button from "../shared/Button";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -20,38 +21,48 @@ export const CartModal: React.FC<CartModalProps> = ({
   onClose,
   cartItems,
 }) => {
+  // Calculate total price
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
   return (
     <motion.div
       initial={{ x: "100%" }}
       animate={{ x: isOpen ? 0 : "100%" }}
       transition={{ type: "tween", duration: 0.3 }}
-      className="fixed top-0 right-0 w-96 h-full bg-white shadow-lg p-6 overflow-y-auto z-50"
+      className="fixed top-0 right-0 w-96 h-full bg-white shadow-lg p-6 z-50 flex flex-col"
     >
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Cart</h2>
+        <h2 className="text-[26px] leading-[36px]  font-semibold text-[#383838]">Cart</h2>
         <button onClick={onClose} className="text-gray-500 hover:text-black">
           ✕
         </button>
       </div>
+
       <img src="/svgs/cart/stright.svg" alt="" />
-      {cartItems.length > 0 ? (
-        <div>
-          {cartItems.map((item) => (
-            <CartItem key={item.id} item={item} />
-          ))}
-          <SampleSelection />
-          <div className="mt-4 border-t pt-4">
-            <div className="flex justify-between text-lg font-semibold">
-              <span>Subtotal</span>
-              <span>${"122$"}</span>
-            </div>
-            <button className="w-full bg-pink-500 text-white py-2 mt-4 rounded">
-              Check Out
-            </button>
+
+      <div className="flex-1 overflow-y-auto scrollbar-hidden">
+        {cartItems.length > 0 ? (
+          <>
+            {cartItems.map((item) => (
+              <CartItem key={item.id} item={item} />
+            ))}
+            <SampleSelection />
+          </>
+        ) : (
+          <p className="text-[#B0A6BD]">Your cart is empty.</p>
+        )}
+      </div>
+
+      {cartItems.length > 0 && (
+        <div className="absolute bottom-0 left-0 w-full bg-white p-6 shadow-md">
+          <div className="flex justify-between  text-[#B0A6BD] font-normal leading-[18px] text-[16px]">
+            <span>Subtotal</span>
+            <span>${total.toFixed(2)}</span>
           </div>
+          <Button className="w-full  text-white py-2 mt-4 rounded">
+            Check Out
+          </Button>
         </div>
-      ) : (
-        <p className="text-gray-500">Your cart is empty.</p>
       )}
     </motion.div>
   );

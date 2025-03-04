@@ -11,18 +11,17 @@ function page() {
       <ProductDetails />
       <ReviewSection />
       {productsData.sections.map((section) => {
-  const products = productsData[section.products as keyof typeof productsData];
-  return (
-    <ProductSection
-      key={section.title}
-      title={section.title}
-      products={products}
-      cardWidth={289}
-    />
-  );
-})}
-
-
+        const products =
+          productsData[section.products as keyof typeof productsData];
+        return (
+          <ProductSection
+            key={section.title}
+            title={section.title}
+            products={products}
+            cardWidth={289}
+          />
+        );
+      })}
     </div>
   );
 }

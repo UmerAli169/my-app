@@ -16,15 +16,15 @@ export const CartItem: React.FC<CartItemProps> = ({ item }) => {
         className="w-16 h-16 object-cover"
       />
       <div className="flex-1 gap-[10px] ml-4">
-        <h3 className="font-semibold">{item.name}</h3>
-        <h3 className="font-semibold">{item.price }</h3>
+        <h3 className="text-[16px] leading-[24px]  font-medium">{item.name}</h3>
+        <h3 className="text-[14px] leading-[21px]  font-nomral ">{item.price }</h3>
 
         <div className="flex items-center mt-2">
           <div className="border rounded-[4px]">
 
-          <button className="px-2  rounded">-</button>
-          <span className="mx-2">{item.quantity || "12"}</span>
-          <button className="px-2  rounded">+</button>
+          <button className="px-2  text-[14px] leading-[21px]  font-nomral">-</button>
+          <span className="mx-2 text-[14px] leading-[21px]  font-nomral">{item.quantity || "12"}</span>
+          <button className="mx-2 text-[14px] leading-[21px]  font-nomral">+</button>
           </div>
           <div className=" ml-[10px] filter invert w-[8px]">
 
