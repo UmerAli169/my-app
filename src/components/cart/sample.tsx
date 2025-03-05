@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Button from "@/components/shared/Button";
-import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export const SampleSelection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

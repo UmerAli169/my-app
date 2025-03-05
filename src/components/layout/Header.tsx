@@ -114,7 +114,7 @@ const Header = () => {
                       } else if (label.toLowerCase() === "search") {
                         setIsSearchActive(true);
                       } else if (label.toLowerCase() === "cart") {
-                        setIsCartOpen(true); // Opens Cart Modal ✅
+                        setIsCartOpen(true); 
                       }
                     }}
                   >
@@ -130,14 +130,12 @@ const Header = () => {
         </Wrapper>
       </nav>
 
-      {/* Cart Modal ✅ */}
       <CartModal
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         cartItems={[]}
       />
 
-      {/* Authentication Modal Manager */}
       <ModalManager
         activeModal={activeModal}
         closeModal={closeModal}

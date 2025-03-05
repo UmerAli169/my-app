@@ -8,7 +8,7 @@ interface CartItemProps {
     };
   }
   export const OrderItem: React.FC<CartItemProps> = ({ item }) => {
-    return (
+    return ( 
       <div className="flex items-center justify-between border-b py-4">
         <img
           src={item.image || "/cart/cart1.png"}
@@ -35,4 +35,7 @@ interface CartItemProps {
       </div>
     );
   };
-  
+   
+
+
+  // ya chckout wla 

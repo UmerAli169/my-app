@@ -10,20 +10,22 @@ import Filters from "@/components/shared/Filters";
 
 export default function CatalogPage() {
   const router = useRouter();
-  const { slug }:any = useParams(); 
+  const { slug }: any = useParams();
   const [currentCategory, setCurrentCategory] = useState(null);
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     if (!slug) return;
 
-    let selectedCategory :any= categoriesData;
+    let selectedCategory: any = categoriesData;
     for (const slugPart of slug) {
-      selectedCategory = selectedCategory.find((cat:any) => cat.slug === slugPart)?.subcategories || [];
+      selectedCategory =
+        selectedCategory.find((cat: any) => cat.slug === slugPart)
+          ?.subcategories || [];
     }
 
     if (selectedCategory.length === 0) {
-      router.push("/catalog"); 
+      router.push("/catalog");
       return;
     }
 
@@ -38,7 +40,7 @@ export default function CatalogPage() {
         <div className="lg:max-w-[250px] w-fill flex flex-col gap-6">
           <Sidebar
             title="Shop by Category"
-            collapsibleSections={currentCategory?.map((sub:any) => ({
+            collapsibleSections={currentCategory?.map((sub: any) => ({
               key: sub.slug,
               title: sub.name,
               href: `/catalog/${slug.join("/")}/${sub.slug}`,

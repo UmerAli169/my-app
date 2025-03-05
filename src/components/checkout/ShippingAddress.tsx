@@ -1,51 +1,27 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
+import InputField from "../shared/InputField";
 
 const ShippingAddress = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div >
+    <div>
       <h2 className="text-lg font-semibold mb-2">Shipping Address</h2>
 
       {isLoggedIn ? (
         <div className="space-y-2">
-          <input
-            type="text"
-            className="border p-2 w-full rounded "
-            value="Maidan Nezalezhnosti 2, Kyiv, Ukraine"
-            readOnly
-          />
-          <input
-            type="text"
-            className="border p-2 w-full rounded "
-            value="Ukraine"
-            readOnly
-          />
-          <input
-            type="text"
-            className="border p-2 w-full rounded"
-            placeholder="Address"
-          />
+          <InputField value="Maidan Nezalezhnosti 2, Kyiv, Ukraine" readOnly />
+          <InputField value="Ukraine" readOnly />
+          <InputField placeholder="Address" />
 
           <div className="flex gap-2">
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="City"
-            />
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="Postal Code"
-            />
+            <InputField placeholder="City" className="w-1/2" />
+            <InputField placeholder="Postal Code" className="w-1/2" />
           </div>
-          <input
-            type="text"
-            className="border p-2 w-full rounded "
-            value="+380661231232"
-            readOnly
-          />
+
+          <InputField value="+380661231232" readOnly />
+
           <label className="flex items-center gap-2 text-gray-700">
             <input type="checkbox" className="w-4 h-4" />
             The recipient is not me
@@ -54,44 +30,18 @@ const ShippingAddress = () => {
       ) : (
         <div className="space-y-2">
           <div className="flex gap-2">
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="Last Name"
-            />
+            <InputField placeholder="First Name" className="w-1/2" />
+            <InputField placeholder="Last Name" className="w-1/2" />
           </div>
-          <input
-            type="text"
-            className="border p-2 w-full rounded"
-            placeholder="Country"
-          />
-          <input
-            type="text"
-            className="border p-2 w-full rounded"
-            placeholder="Address"
-          />
+          <InputField placeholder="Country" />
+          <InputField placeholder="Address" />
+
           <div className="flex gap-2">
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="City"
-            />
-            <input
-              type="text"
-              className="border p-2 w-1/2 rounded"
-              placeholder="Postal Code"
-            />
+            <InputField placeholder="City" className="w-1/2" />
+            <InputField placeholder="Postal Code" className="w-1/2" />
           </div>
-          <input
-            type="text"
-            className="border p-2 w-full rounded"
-            placeholder="Phone"
-          />
+
+          <InputField placeholder="Phone" />
         </div>
       )}
 

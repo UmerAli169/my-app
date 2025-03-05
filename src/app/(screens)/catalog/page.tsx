@@ -19,10 +19,10 @@ const CatalogPage = () => {
   const collapsibleSections = categoriesData.map((category) => ({
     key: category.slug,
     title: category.name,
-    href: `/catalog/${category.slug}`,
+    href: `/Catalog/${category.slug}`,
     items: category.subcategories.map((sub) => ({
       label: sub.name,
-      href: `/catalog/${category.slug}/${sub.slug}`,
+      href: `/Catalog/${category.slug}/${sub.slug}`,
     })),
   }));
 

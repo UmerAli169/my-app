@@ -1,37 +1,32 @@
 import React from "react";
+import RadioButton from "../shared/RadioButton";
 
 interface DeliveryMethodProps {
   selectedMethod: string;
   onChange: (method: string) => void;
+  onEdit?: () => void; 
+
 }
 
 const DeliveryMethod: React.FC<DeliveryMethodProps> = ({ selectedMethod, onChange }) => {
   return (
-    <div    >
+    <div>
       <h2 className="text-lg font-semibold mb-2">Delivery Method</h2>
       <div className="flex flex-col gap-2">
-        <label className="flex items-center gap-2 text-gray-700">
-          <input
-            type="radio"
-            name="delivery"
-            className="w-4 h-4"
-            value="ship"
-            checked={selectedMethod === "ship"}
-            onChange={() => onChange("ship")}
-          />
-          Ship
-        </label>
-        <label className="flex items-center gap-2 text-gray-700">
-          <input
-            type="radio"
-            name="delivery"
-            className="w-4 h-4"
-            value="pickup"
-            checked={selectedMethod === "pickup"}
-            onChange={() => onChange("pickup")}
-          />
-          Pick Up
-        </label>
+        <RadioButton
+          name="delivery"
+          label="Ship"
+          value="ship"
+          checked={selectedMethod === "ship"}
+          onChange={onChange}
+        />
+        <RadioButton
+          name="delivery"
+          label="Pick Up"
+          value="pickup"
+          checked={selectedMethod === "pickup"}
+          onChange={onChange}
+        />
       </div>
     </div>
   );

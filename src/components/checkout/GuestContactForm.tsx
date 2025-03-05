@@ -1,20 +1,31 @@
 "use client";
 
 import React from "react";
+import InputField from "../shared/InputField";
+import Button from "../shared/Button";
 
-const GuestContactForm = ({ email, isLoggedIn, onLogout }: { email?: string; isLoggedIn: boolean; onLogout: () => void }) => {
+interface GuestContactFormProps {
+  email?: string;
+  isLoggedIn: boolean;
+  onLogout: () => void;
+  onEmailChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const GuestContactForm: React.FC<GuestContactFormProps> = ({ email, isLoggedIn, onLogout, onEmailChange }) => {
   return (
-    <div >
+    <div>
       <h2 className="text-lg font-semibold mb-2">Enter Contact Information</h2>
 
       {isLoggedIn ? (
         <div className="flex justify-between items-center bg-[#B9A6BD1A]/10 p-2 w-full rounded">
-            <span>Contact</span>
+          <span>Contact</span>
           <span>{email}</span>
-          <button className="text-red-500 hover:underline" onClick={onLogout}>Logout</button>
+          <Button className="text-red-500 hover:underline px-2 py-1 text-sm" onClick={onLogout}>
+            Logout
+          </Button>
         </div>
       ) : (
-        <input type="email" className="border p-2 w-full rounded" placeholder="Enter your email" />
+        <InputField type="email" placeholder="Enter your email" value={email} onChange={onEmailChange} />
       )}
 
       <div className="mt-2">

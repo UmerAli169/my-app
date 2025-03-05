@@ -1,12 +1,13 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
-
+ 
 interface SidebarProps {
   title?: string;
-  links?: { label: string; href: string }[];
+  links?: { label: string; href: string }[]; 
   collapsibleSections?: {
     key: string;
     title: string;
@@ -20,7 +21,7 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
 
   const toggleSection = (event: React.MouseEvent, section: string) => {
-    event.preventDefault(); 
+    event.preventDefault();
     setOpenSections((prev) => ({
       ...prev,
       [section]: !prev[section],
@@ -38,7 +39,9 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
             <li key={index}>
               <Link
                 href={link.href}
-                className={`block text-[16px] ${isActive ? "text-[#F5A3B7] font-semibold" : "text-[#383838]"}`}
+                className={`block text-[16px] font-medium ${
+                  isActive ? "text-[#F5A3B7]" : "text-[#383838] hover:text-black"
+                }`}
               >
                 {link.label}
               </Link>
@@ -53,8 +56,9 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
         return (
           <div key={section.key} className="mt-6">
             <div
-              className={`hover:text-[#E49BAE] text-[16px] leading-[24px] font-medium flex items-center justify-between cursor-pointer ${isActive ? "text-[#F5A3B7]" : "text-[#697586]"
-                }`}
+              className={`hover:text-[#E49BAE] text-[16px] leading-[24px] font-medium flex items-center justify-between cursor-pointer ${
+                isActive ? "text-[#F5A3B7]" : "text-[#697586]"
+              }`}
             >
               <Link href={section.href || "#"}>{section.title}</Link>
 
@@ -67,7 +71,10 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
               <ul className="space-y-[10px] mt-2">
                 {section.items.map((item, idx) => (
                   <li key={idx}>
-                    <Link href={item.href} className="text-[14px] leading-[21px] font-normal text-[#697586] hover:text-[#E49BAE]  ">
+                    <Link
+                      href={item.href}
+                      className="text-[14px] leading-[21px] font-normal text-[#697586] hover:text-[#E49BAE]"
+                    >
                       {item.label}
                     </Link>
                   </li>

@@ -2,14 +2,13 @@ import React from "react";
 import {OrderItem} from "./OrderItem";
 import Button from "../shared/Button";
 
-const orders = [
-  { id: 1, name: "Dewy Glow Jelly Cream", price: 19.6, quantity: 3, image: "/cart/cart1.png" }, 
-  { id: 2, name: "Soft Finish", price: 19.6, quantity: 1, image: "/cart/cart1.png"},
-];
+interface OrderSummaryProps {
+  orders: { id: number; name: string; price: number; quantity: number; image: string }[];
+  shipping?: number;
+}
 
-const OrderSummary = () => {
+const OrderSummary: React.FC<OrderSummaryProps> = ({ orders, shipping = 5.0 }) => {
   const subtotal = orders.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const shipping = 5.0;
   const total = subtotal + shipping;
 
   return (

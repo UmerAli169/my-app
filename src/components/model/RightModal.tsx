@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation"; // Import useRouter
 import { CartItem } from "@/components/cart/Items";
 import { SampleSelection } from "@/components/cart/sample";
 import Button from "../shared/Button";
@@ -21,7 +22,15 @@ export const CartModal: React.FC<CartModalProps> = ({
   onClose,
   cartItems,
 }) => {
+  const router = useRouter(); // Initialize useRouter
+
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  // Function to handle checkout navigation
+  const handleCheckout = () => {
+    onClose(); // Close the cart modal
+    router.push("/Checkout"); // Navigate to checkout page
+  };
 
   return (
     <>
@@ -37,7 +46,7 @@ export const CartModal: React.FC<CartModalProps> = ({
         animate={{ x: isOpen ? 0 : "100%" }}
         transition={{ type: "tween", duration: 0.3 }}
         className="fixed top-0 right-0 w-96 h-full bg-white shadow-lg p-6 z-50 flex flex-col"
-        onClick={(e) => e.stopPropagation()} // Prevent backdrop click from closing modal
+        onClick={(e) => e.stopPropagation()} 
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-[26px] leading-[36px] font-semibold text-[#383838]">
@@ -69,7 +78,7 @@ export const CartModal: React.FC<CartModalProps> = ({
               <span>Subtotal</span>
               <span>${total.toFixed(2)}</span>
             </div>
-            <Button className="w-full text-white py-2 mt-4 rounded">
+            <Button onClick={handleCheckout} className="w-full text-white py-2 mt-4 rounded">
               Check Out
             </Button>
           </div>
