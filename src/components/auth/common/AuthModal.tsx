@@ -1,4 +1,4 @@
-import { Modal } from "@/views/ui/model/Modal";
+import { Modal } from "../../model/Modal";
 
 
 export const AuthModal = ({ title, heading, children, ...modalProps }: any) => {

@@ -1,11 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
-import ProductCard from "../../../views/ui/shared/ProductCard";
-import Sidebar from "../../../views/ui/shared/Sidebar";
+import ProductCard from "../../../components/shared/ProductCard";
+import Sidebar from "../../../components/shared/Sidebar";
 import productsData from "../../../Data/mainPage/cardSection/products.json";
 import categoriesData from "@/Data/categories/categorie.json";
 import Wrapper from "@/app/wrapper";
-import { CartModal } from "@/views/ui/model/RightModal";
+import { CartModal } from "../../../components/model/RightModal";
 
 const CatalogPage = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);

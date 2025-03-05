@@ -1,5 +1,5 @@
-import ProductSection from "@/views/ui/main/ProductSection";
-import ProductCard from "@/views/ui/shared/ProductCard";
+import ProductSection from "@/components/main/ProductSection";
+import ProductCard from "@/components/shared/ProductCard";
 import productsData from "../../../../Data/mainPage/cardSection/products.json";
 
 export default function SubCategoryProduct({ products }: any) {

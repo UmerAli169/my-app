@@ -4,9 +4,9 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import categoriesData from "@/Data/categories/categorie.json";
 import Wrapper from "@/app/wrapper";
-import Sidebar from "@/views/ui/shared/Sidebar";
+import Sidebar from "@/components/shared/Sidebar";
 import SubCategoryProduct from "./SubCategoryProduct";
-import Filters from "@/views/ui/shared/Filters";
+import Filters from "@/components/shared/Filters";
 
 export default function CatalogPage() {
   const router = useRouter();

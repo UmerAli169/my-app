@@ -1,12 +1,11 @@
-import Home from '../components/mainPage/Home'
-import React from 'react'
+import MainPage from "../views/MainPage/Dashboard";
+import React from "react";
 
 function page() {
   return (
     <div>
-      <Home />
-
+      <MainPage />
     </div>
-  )
+  );
 }
-export default page
+export default page;

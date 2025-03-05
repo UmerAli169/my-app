@@ -1,11 +1,11 @@
-import AboutPage from '@/components/AboutPage/About'
-import React from 'react'
+import AboutPage from "@/views/AboutPage/About";
+import React from "react";
 
 function page() {
   return (
     <div>
- <AboutPage/>
+      <AboutPage />
     </div>
-  )
+  );
 }
-export default page
+export default page;

@@ -2,10 +2,10 @@
 import Wrapper from "@/app/wrapper";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import MenuItem from "../../views/ui/navbar/MetuItems";
+import MenuItem from "../../components/navbar/MetuItems";
 import navbar from "../../Data/header/navbar.json";
 import ModalManager from "../auth/modals/ModalManager";
-import { CartModal } from "../../views/ui/model/RightModal";
+import { CartModal } from "../model/RightModal";
 import Link from "next/link";
 
 const Header = () => {

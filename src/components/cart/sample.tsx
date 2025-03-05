@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "@/views/ui/shared/Button";
+import Button from "@/components/shared/Button";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export const SampleSelection: React.FC = () => {
