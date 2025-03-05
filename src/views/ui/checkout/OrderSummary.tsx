@@ -1,11 +1,10 @@
 import React from "react";
-import OrderItem from "./OrderItem";
+import {OrderItem} from "./OrderItem";
 import Button from "../shared/Button";
 
 const orders = [
-  { id: 1, name: "Dewy Glow Jelly Cream", price: 19.6, quantity: 1, image: "/images/product1.jpg" },
-  { id: 2, name: "Soft Finish", price: 19.6, quantity: 1, image: "/images/product2.jpg" },
-  { id: 3, name: "Soft Finish", price: 19.6, quantity: 1, image: "/images/product2.jpg" },
+  { id: 1, name: "Dewy Glow Jelly Cream", price: 19.6, quantity: 3, image: "/cart/cart1.png" }, 
+  { id: 2, name: "Soft Finish", price: 19.6, quantity: 1, image: "/cart/cart1.png"},
 ];
 
 const OrderSummary = () => {
@@ -26,7 +25,6 @@ const OrderSummary = () => {
         <p>Shipping: <span className="float-right">${shipping.toFixed(2)}</span></p>
         <p className="font-semibold">Estimated Total: <span className="float-right">${total.toFixed(2)}</span></p>
       </div>
-      <Button text="Continue to Shipping" className="w-full mt-4 bg-pink-500 text-white py-2 rounded-lg" />
     </div>
   );
 };

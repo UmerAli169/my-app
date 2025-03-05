@@ -1,25 +1,35 @@
 import React from "react";
-import ContactInfo from "../../../views/ui/checkout/ContactInfo";
-import DeliveryMethod from "../../../views/ui/checkout//DeliveryMethod";
-import ShippingAddress from "../../../views/ui/checkout/ShippingAddress";
-import OrderSummary from "../../../views/ui/checkout/OrderSummary";
+import Button from "../../ui/shared/Button";
 
-const Checkout = () => {
+const ContactInfo = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 p-6">
-      {/* Left Side - Form */}
-      <div className="flex-1 space-y-6">
-        <ContactInfo />
-        <DeliveryMethod />
-        <ShippingAddress />
+    <div >
+      <div className="flex justify-between items-center">
+        <h2 className="text-lg font-semibold">Contact Information</h2>
+        <p className="text-sm text-gray-600">
+          Do you already have an account?{" "}
+          <span className="text-blue-500 cursor-pointer">Login</span>
+        </p>
       </div>
 
-      {/* Right Side - Order Summary */}
-      <div className="w-full lg:w-1/3">
-        <OrderSummary />
+      <div className="mt-3">
+        <input
+          type="email"
+          className="border p-2 w-full rounded"
+          placeholder="Enter your email"
+        />
       </div>
+
+      <div className="mt-2">
+        <label className="flex items-center gap-2 text-sm text-gray-600">
+          <input type="checkbox" className="w-4 h-4" />
+          Yes, I want to subscribe to the newsletter.
+        </label>
+      </div>
+
+      
     </div>
   );
 };
 
-export default Checkout;
+export default ContactInfo;
