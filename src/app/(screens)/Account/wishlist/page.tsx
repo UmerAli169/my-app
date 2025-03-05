@@ -2,8 +2,8 @@
 import AccountLayout from "@/components/account/AccountLayout";
 import React, { useState } from "react";
 import productsData from "../../../../Data/mainPage/cardSection/products.json";
-import ProductCard from "@/views/ui/shared/ProductCard";
-import { CartModal } from "@/views/ui/model/RightModal";
+import ProductCard from "../../../../components/shared/ProductCard";
+import { CartModal } from "../../../../components/model/RightModal";
 
 function Page() {
   const [isCartOpen, setIsCartOpen] = useState(false);
