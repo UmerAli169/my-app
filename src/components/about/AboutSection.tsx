@@ -8,7 +8,7 @@ interface SectionProps {
 const AboutSection: React.FC<SectionProps> = ({ title, items }) => {
   return (
     <div className=" py-[20px] px-[30px]   ">
-      <p className="lg:text-[24px] text-[20px] font-bold text-[#383838] ">
+      <p className="lg:text-[24px] text-[20px] font-bold text-[#383838] border-b border-[#DFE1E3] pb-[20px]">
         {title}
       </p>
       {items.map((item, index) => (

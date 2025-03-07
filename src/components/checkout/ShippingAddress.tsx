@@ -6,48 +6,80 @@ const ShippingAddress = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div>
-      <h2 className="text-lg font-semibold mb-2">Shipping Address</h2>
+    <div className=" mx-auto">
+      <h2 className="text-[22px] text-[#383838] font-medium pb-[20px]">
+        Shipping Address
+      </h2>
 
       {isLoggedIn ? (
-        <div className="space-y-2">
-          <InputField value="Maidan Nezalezhnosti 2, Kyiv, Ukraine" readOnly />
-          <InputField value="Ukraine" readOnly />
-          <InputField placeholder="Address" />
+        <div className="space-y-[20px]">
+          <InputField
+            label="Saved Address"
+            value="Maidan Nezalezhnosti 2, Kyiv, Ukraine"
+            readOnly
+          />
+          <InputField label="Country" value="Ukraine" readOnly />
+          <InputField label="Address" placeholder="Enter your address" />
 
-          <div className="flex gap-2">
-            <InputField placeholder="City" className="w-1/2" />
-            <InputField placeholder="Postal Code" className="w-1/2" />
+          <div className="flex gap-3">
+            <InputField
+              label="City"
+              placeholder="Enter city"
+              className="w-1/2"
+            />
+            <InputField
+              label="Postal Code"
+              placeholder="Enter postal code"
+              className="w-1/2"
+            />
           </div>
 
-          <InputField value="+380661231232" readOnly />
+          <InputField label="Phone" value="+380661231232" readOnly />
 
-          <label className="flex items-center gap-2 text-gray-700">
-            <input type="checkbox" className="w-4 h-4" />
+          <label className="flex items-center gap-2 text-[#383838] text-[14px]">
+            <input type="checkbox" className="w-4 h-4 border-[#D9D9D9]" />
             The recipient is not me
           </label>
         </div>
       ) : (
-        <div className="space-y-2">
-          <div className="flex gap-2">
-            <InputField placeholder="First Name" className="w-1/2" />
-            <InputField placeholder="Last Name" className="w-1/2" />
+        <div className="space-y-3">
+          <div className="flex gap-3">
+            <InputField
+              label="First Name"
+              placeholder="Enter first name"
+              className="w-1/2"
+            />
+            <InputField
+              label="Last Name"
+              placeholder="Enter last name"
+              className="w-1/2"
+            />
           </div>
-          <InputField placeholder="Country" />
-          <InputField placeholder="Address" />
+          <InputField label="Country" placeholder="Enter country" />
+          <InputField label="Address" placeholder="Enter your address" />
 
-          <div className="flex gap-2">
-            <InputField placeholder="City" className="w-1/2" />
-            <InputField placeholder="Postal Code" className="w-1/2" />
+          <div className="flex gap-3">
+            <InputField
+              label="City"
+              placeholder="Enter city"
+              className="w-1/2"
+            />
+            <InputField
+              label="Postal Code"
+              placeholder="Enter postal code"
+              className="w-1/2"
+            />
           </div>
 
-          <InputField placeholder="Phone" />
+          <InputField label="Phone" placeholder="Enter phone number" />
         </div>
       )}
 
-      <Button className="max-w-[285px] w-full py-[10px] px-[33px]">
-        Continue to Shipping
-      </Button>
+      <div className="pt-[40px]">
+        <Button className="max-w-[285px] w-full py-[12px] px-[33px] text-white font-semibold font-[16px]">
+          Continue to Shipping
+        </Button>
+      </div>
     </div>
   );
 };

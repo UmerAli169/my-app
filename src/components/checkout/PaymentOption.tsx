@@ -10,10 +10,10 @@ interface PaymentOptionProps {
 
 const PaymentOption: React.FC<PaymentOptionProps> = ({ value, label, icon, selected, onSelect }) => {
   return (
-    <label className="flex items-center gap-2 cursor-pointer">
+    <label className="flex items-center gap-[3px] cursor-pointer text-[#383838] text-[16px] font-normal">
       <input type="radio" value={value} checked={selected === value} onChange={() => onSelect(value)} className="mr-2" />
-      {icon}
       <span>{label}</span>
+      {icon}
     </label>
   );
 };

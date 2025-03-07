@@ -20,10 +20,10 @@ const ShippingOption: React.FC<ShippingOptionProps> = ({ value, label, descripti
           onChange={() => onSelect(value)}
           className="mr-2"
         />
-        <span>{label}</span>
-        <p className="text-gray-500 text-sm">{description}</p>
+        <span className="text-[#383838] text-[16px] font-normal">{label}</span>
+        <p className=" ml-[20px] text-[#B0A6BD] text-[14px] font-normal">{description}</p>
       </div>
-      <span>{price}</span>
+      <span className="text-[#383838] text-[16px] font-normal">{price}</span>
     </label>
   );
 };

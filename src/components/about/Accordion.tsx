@@ -10,9 +10,9 @@ const Accordion: React.FC<AccordionProps> = ({ question, answer }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-300">
+    <div className="border-b border-[#DFE1E3]">
       <button
-        className={`w-full text-left p-3 lg:text-[14px] text-[12px] font-medium text-[#383838] leading-[27px] flex justify-between items-center ${
+        className={`w-full text-left p-3 lg:text-[16px] text-[14px] font-medium text-[#383838] leading-[27px] flex justify-between ${
           open ? "bg-[rgba(176,166,189,0.1)]" : " "
         }`}
         onClick={() => setOpen(!open)}
@@ -21,7 +21,7 @@ const Accordion: React.FC<AccordionProps> = ({ question, answer }) => {
         <span className="text-[18px]">{open ? <img src="/svgs/Shared/OpenAndCloaed/accodionOpen.svg" alt="" /> :<img src="/svgs/Shared/OpenAndCloaed/accodionOpen.svg" alt="" /> }</span>
       </button>
       {open && (
-        <p className="p-3 leading-[22px] font-normal font-[Montserrat] font-medium text-[14px] text-[#697586]">
+        <p className=" p-3 leading-[22px] font-normal font-[Montserrat] font-normal text-[16px] text-[#383838]">
           {answer}
         </p>
       )}

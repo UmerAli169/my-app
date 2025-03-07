@@ -18,7 +18,7 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="flex-1 bg-white rounded-lg px-[20px] py-[40px]">
+        <div className="flex-1 bg-white rounded-lg px-[20px] ">
           {aboutData.sections.map((section, index) => (
             <AboutSection key={index} title={section.title} items={section.items} />
           ))}

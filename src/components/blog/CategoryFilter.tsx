@@ -49,14 +49,14 @@ const CategoryFilter = () => {
           </div>
           <button
             onClick={handleScroll}
-            className="absolute right-[180px] top-1/2 -translate-y-1/2 bg-gray-200 p-2 rounded-full"
+            className="absolute right-[290px]  top-1/2 -translate-y-1/2"
           >
-            <ChevronRight className="w-4 h-4 text-gray-600" />
-          </button>
+            <img src="/svgs/Shared/ProductSection/rightArrow.svg"  className="w-[40px]" alt="" />
+            </button>
         </Wrapper>
       </div>
     </div>
-  );
+  );  
 };
 
 export default CategoryFilter;

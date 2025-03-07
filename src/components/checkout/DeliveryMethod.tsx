@@ -11,7 +11,7 @@ interface DeliveryMethodProps {
 const DeliveryMethod: React.FC<DeliveryMethodProps> = ({ selectedMethod, onChange }) => {
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-2">Delivery Method</h2>
+      <h2 className="text-[20px] text-[#383838] font-medium">Delivery Method</h2>
       <div className="flex flex-col gap-2">
         <RadioButton
           name="delivery"

@@ -1,4 +1,4 @@
-import AccountLayout from "@/app/(screens)/Account/AccountLayout/page";
+import AccountLayout from "../../components/account/AccountLayout";
 import React from "react";
 import OrderList from "../../components/order/OrderList";
 import ordersData from "../../Data/order/order.json"; 

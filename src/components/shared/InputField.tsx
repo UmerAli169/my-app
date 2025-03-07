@@ -1,31 +1,36 @@
 import React from "react";
 
 interface InputFieldProps {
+  label?: string;
   type?: string;
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
-  readOnly?: boolean; 
+  readOnly?: boolean;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
+  label,
   type = "text",
   placeholder,
   value,
   onChange,
   className = "",
-  readOnly = false, 
+  readOnly = false,
 }) => {
   return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      readOnly={readOnly}
-      className={`border p-2 w-full rounded ${className} ${readOnly ? "bg-gray-100 cursor-not-allowed" : ""}`}
-    />
+    <div className="w-full">
+      {label && <label className="block text-[#B0A6BD] text-[12px] font-normal ">{label}</label>}
+      <input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        readOnly={readOnly}
+        className={`border border-[#D9D9D9] p-[10px] w-full rounded-[4px] text-[#383838] text-[16px] font-normal outline-none  ${className} ${readOnly ? " cursor-not-allowed" : ""}`}
+      />
+    </div>
   );
 };
 

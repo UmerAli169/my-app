@@ -18,7 +18,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   className = "",
 }) => {
   return (
-    <label className={`flex items-center gap-2 text-gray-700 ${className}`}>
+    <label className={`flex items-center gap-2 text-[16px] text-[#383838] font-normal ${className}`}>
       <input
         type="radio"
         name={name}

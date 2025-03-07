@@ -1,5 +1,5 @@
 import React from "react";
-import OrderItem from "./OrderItem";
+import OrderItem from "../../components/shared/OrderItem";
 
 interface Order {
   id: string;

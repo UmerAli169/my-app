@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
- 
+
 interface SidebarProps {
   title?: string;
-  links?: { label: string; href: string }[]; 
+  links?: { label: string; href: string }[];
   collapsibleSections?: {
     key: string;
     title: string;
@@ -16,9 +16,15 @@ interface SidebarProps {
   }[];
 }
 
-const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) => {
+const Sidebar = ({
+  title,
+  links = [],
+  collapsibleSections = [],
+}: SidebarProps) => {
   const pathname = usePathname();
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({});
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>(
+    {}
+  );
 
   const toggleSection = (event: React.MouseEvent, section: string) => {
     event.preventDefault();
@@ -30,7 +36,9 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
 
   return (
     <div className="md:max-w-[250px] w-full bg-[#FFFFFF] rounded-[6px] py-[20px] px-[30px]">
-      {title && <h2 className="text-[24px] font-bold text-[#383838] mb-4">{title}</h2>}
+      {title && (
+        <h2 className="text-[24px] font-bold text-[#383838] mb-4">{title}</h2>
+      )}
 
       <ul className="space-y-[20px]">
         {links.map((link, index) => {
@@ -40,7 +48,9 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
               <Link
                 href={link.href}
                 className={`block text-[16px] font-medium ${
-                  isActive ? "text-[#F5A3B7]" : "text-[#383838] hover:text-black"
+                  isActive
+                    ? "text-[#F5A3B7]"
+                    : "text-[#383838] hover:text-black"
                 }`}
               >
                 {link.label}
@@ -62,8 +72,15 @@ const Sidebar = ({ title, links = [], collapsibleSections = [] }: SidebarProps) 
             >
               <Link href={section.href || "#"}>{section.title}</Link>
 
-              <button onClick={(e) => toggleSection(e, section.key)} className="ml-2">
-                {openSections[section.key] ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              <button
+                onClick={(e) => toggleSection(e, section.key)}
+                className="ml-2"
+              >
+                {openSections[section.key] ? (
+                  <ChevronUp size={16} />
+                ) : (
+                  <ChevronDown size={16} />
+                )}
               </button>
             </div>
 

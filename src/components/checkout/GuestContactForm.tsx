@@ -3,6 +3,8 @@
 import React from "react";
 import InputField from "../shared/InputField";
 import Button from "../shared/Button";
+import Link from "next/link";
+import ContactInfo from "../shared/ContactInfo";
 
 interface GuestContactFormProps {
   email?: string;
@@ -11,25 +13,41 @@ interface GuestContactFormProps {
   onEmailChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const GuestContactForm: React.FC<GuestContactFormProps> = ({ email, isLoggedIn, onLogout, onEmailChange }) => {
+const GuestContactForm: React.FC<GuestContactFormProps> = ({
+  email,
+  isLoggedIn,
+  onLogout,
+  onEmailChange,
+}) => {
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-2">Enter Contact Information</h2>
+      <div className="flex justify-between items-center pb-[20px]">
+        <h2 className="text-[20px] text-[#383838] font-medium">
+          Contact Information
+        </h2>
+        {!isLoggedIn && (
+          <p className="text-[#697586] text-[16px] font-normal">
+            Do you already have an account? <Link href="">Login</Link>
+          </p>
+        )}
+      </div>
 
       {isLoggedIn ? (
-        <div className="flex justify-between items-center bg-[#B9A6BD1A]/10 p-2 w-full rounded">
-          <span>Contact</span>
-          <span>{email}</span>
-          <Button className="text-red-500 hover:underline px-2 py-1 text-sm" onClick={onLogout}>
-            Logout
-          </Button>
-        </div>
+        <ContactInfo 
+          email={email || ""}
+          isLoggedIn={isLoggedIn}
+          onLogout={onLogout} method={undefined}        />
       ) : (
-        <InputField type="email" placeholder="Enter your email" value={email} onChange={onEmailChange} />
+        <InputField
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={onEmailChange}
+        />
       )}
 
       <div className="mt-2">
-        <label className="flex items-center gap-2 text-sm text-gray-600">
+        <label className="flex items-center gap-2 text-[14px] font-normal text-[#697586]">
           <input type="checkbox" className="w-4 h-4" />
           Yes, I want to subscribe to the newsletter.
         </label>

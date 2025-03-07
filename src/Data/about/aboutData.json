@@ -1,7 +1,7 @@
 {
   "sections": [
     {
-      "title": "Shipping",
+      "title": "SHIPPING",
       "items": [
         {
           "question": "Domestic Shipping",
@@ -18,7 +18,7 @@
       ]
     },
     {
-      "title": "Returns",
+      "title": "RETURNS",
       "items": [
         {
           "question": "Return Policy",
