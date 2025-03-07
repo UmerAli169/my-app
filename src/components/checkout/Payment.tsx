@@ -38,25 +38,27 @@ const Payment: React.FC<PaymentProps> = ({
       />
 
       <div className="">
-        <div className="text-[20px] text-[#383838] font-medium">Payment Method</div>
+        <div className="text-[20px] text-[#383838] font-medium">
+          Payment Method
+        </div>
         <PaymentOption
           value="credit-card"
           label="Credit Card"
-          icon={<img src="/svgs/payment/visa.svg" alt="" />  }
+          icon={<img src="/svgs/payment/visa.svg" alt="" />}
           selected={paymentMethod}
           onSelect={setPaymentMethod}
         />
         <PaymentOption
           value="gpay"
           label="Google Pay"
-          icon={<img src="/svgs/payment/gpay.svg" alt="" />  }
+          icon={<img src="/svgs/payment/gpay.svg" alt="" />}
           selected={paymentMethod}
           onSelect={setPaymentMethod}
         />
         <PaymentOption
           value="paypal"
           label="PayPal"
-          icon={<img src="/svgs/payment/paypal.svg" alt="" />  }
+          icon={<img src="/svgs/payment/paypal.svg" alt="" />}
           selected={paymentMethod}
           onSelect={setPaymentMethod}
         />
@@ -68,12 +70,15 @@ const Payment: React.FC<PaymentProps> = ({
         <div className="mt-4 space-y-3">
           <TextInput placeholder="Card Number" />
           <TextInput placeholder="Card Name" />
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <TextInput
               placeholder="Expiration Date (MM/YY)"
-              className="w-1/2"
+              className="w-full sm:w-5/4"
             />
-            <TextInput placeholder="Security Code" className="w-1/2" />
+            <TextInput
+              placeholder="Security Code"
+              className="w-full sm:w-5/4"
+            />
           </div>
         </div>
       )}

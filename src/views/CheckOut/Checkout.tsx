@@ -38,7 +38,7 @@ const Checkout = () => {
   const handleProceedToPayment = () => setShowPayment(true);
 
   const [deliveryMethod, setDeliveryMethod] = useState("ship");
-  const [showShipping, setShowShipping] = useState(true);
+  const [showShipping, setShowShipping] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [email, setEmail] = useState("");
