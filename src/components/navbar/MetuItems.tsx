@@ -7,9 +7,15 @@ interface MenuItemProps {
   label: string;
   enabled: boolean;
   hasSubmenu?: boolean;
+  disableHover?: boolean;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
+const MenuItem: React.FC<MenuItemProps> = ({
+  label,
+  enabled,
+  hasSubmenu,
+  disableHover,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -33,8 +39,12 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, enabled, hasSubmenu }) => {
         }`}
       >
         <span
-          className="relative text-[16px] text-[#383838] hover:text-[#F5A3B7] font-medium whitespace-nowrap 
-  after:content-[''] after:absolute after:left-0 after:bottom-[-22px] after:w-full after:h-[2px] after:bg-[#F5A3B7] after:opacity-0 hover:after:opacity-100 hover:after:h-[4px]"
+          className={`relative text-[16px] text-[#383838] hover:text-[#F5A3B7] font-medium whitespace-nowrap 
+          ${
+            !disableHover
+              ? "hover:bg-gray-200 after:content-[''] after:absolute after:left-0 after:bottom-[-22px] after:w-full after:h-[2px] after:bg-[#F5A3B7] after:opacity-0 hover:after:opacity-100 hover:after:h-[4px]"
+              : ""
+          }`}
         >
           {label}
         </span>
