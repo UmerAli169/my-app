@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { AuthButton } from "../common/AuthButton";
 import { AuthInput } from "../../shared/Input";
 import { AuthModal } from "../common/AuthModal";
+import { resetPassword } from "../../../services/internal";
+import { useAuthStore } from "../../../store/authStore";
 
 interface ResetPasswordModalProps {
   isOpen: boolean;
@@ -13,26 +15,33 @@ interface ResetPasswordModalProps {
 
 export const ResetPasswordModal = ({ isOpen, onClose, token }: ResetPasswordModalProps) => {
   const [successMessage, setSuccessMessage] = useState(false);
+  const setUser = useAuthStore((state) => state.setUser);
 
-  const handleResetPassword = (values: { password: string; confirmPassword: string }, { setSubmitting, resetForm }: any) => {
-    console.log("Resetting password with token:", token, values.password);
-
+  const handleResetPassword = async (
+    values: { password: string; confirmPassword: string },
+    { setSubmitting, resetForm }: any
+  ) => {
     setSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const userData = await resetPassword(token, values.password);
+      setUser(userData); // Store updated user data in Zustand
       setSuccessMessage(true);
       resetForm();
+    } catch (error: any) {
+      console.error("Password reset failed:", error.response?.data?.message || error.message);
+    } finally {
       setSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
     <AuthModal isOpen={isOpen} onClose={onClose} title="Reset Password" heading="Enter a new password for your account:">
       {successMessage ? (
         <div className="flex flex-col items-center gap-4 text-center">
-          <div className="p-4 bg-[#E9F6EE] text-[#1E4620] rounded-md max-w-md">
+          <div className="p-4 bg-[#E9F6EE] text-[#1E4620] rounded-[4px]">
             <img src="/check.svg" alt="Success" className="w-6 mb-2 mx-auto" />
-            <p className="text-sm font-medium">Your password has been successfully changed.</p>
+            <p className="text-[16px] font-medium">Your password has been successfully changed.</p>
           </div>
           <AuthButton type="button" onClick={onClose}>Close</AuthButton>
         </div>

@@ -16,7 +16,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       onClick={onClose} 
     >
       <div
-        className="bg-[#FFFFFF] rounded-[4px] max-w-[957px] relative py-[40px] px-[100px] flex flex-col items-center"
+        className="bg-[#FFFFFF] rounded-[4px]  relative py-[40px] px-[100px] flex flex-col items-center"
         onClick={(e) => e.stopPropagation()} 
       >
         {close && (

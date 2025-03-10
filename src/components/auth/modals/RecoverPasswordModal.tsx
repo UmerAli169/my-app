@@ -1,61 +1,60 @@
-import { useState, useEffect } from "react";
-import * as Yup from "yup"; // Import Yup
-import { AuthModal } from "../common/AuthModal";
+
 import { AuthForm } from "../formick/AuthForm";
+import { useState, useEffect } from "react";
+import * as Yup from "yup";
+import { AuthModal } from "../common/AuthModal";
 import { AuthInput } from "../../shared/Input";
 import { AuthButton } from "../common/AuthButton";
 import { GoogleButton } from "../common/GoogleButton";
 import { OrDivider } from "../common/OrDivider";
+import { recoverPassword } from "../../../services/internal";
+import { useAuthStore } from "../../../store/authStore";
 
 interface RecoverPasswordModalProps {
   isOpen: boolean;
   onClose: () => void;
   onLoginClick: () => void;
-  heading?: string; // Fixed type definition (optional)
+  heading?: string;
 }
 
 export const RecoverPasswordModal = ({ isOpen, onClose, onLoginClick, heading }: RecoverPasswordModalProps) => {
   const [resetError, setResetError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
-
-  const handleRecover = (values: { email: string }, { setSubmitting, resetForm }: any) => {
-    console.log("Password recovery request:", values);
+  const setUser = useAuthStore((state) => state.setUser);
+  const handleRecover = async (values: Record<string, any>, { setSubmitting, resetForm }: any) => {
     setSubmitting(true);
-
-    setTimeout(() => {
-      if (values.email === "test@example.com") {
-        setResetError("This email is not registered.");
-        setSuccessMessage(false);
-      } else {
-        setResetError("");
-        setSuccessMessage(true);
-        resetForm();
-      }
+  
+    try {
+      const userData = await recoverPassword(values.email);
+      setUser(userData); // Store user data in Zustand
+      setSuccessMessage(true);
+      resetForm();
+    } catch (error: any) {
+      setResetError(error.response?.data?.message || "Failed to send recovery email.");
+    } finally {
       setSubmitting(false);
-    }, 1000);
+    }
   };
+  
 
   useEffect(() => {
     if (resetError) {
-      const timer = setTimeout(() => {
-        setResetError("");
-      }, 1500);
+      const timer = setTimeout(() => setResetError(""), 1500);
       return () => clearTimeout(timer);
     }
   }, [resetError]);
 
   return (
-    <AuthModal isOpen={isOpen} onClose={onClose} title="Recover password" heading={heading || "Please enter your email"}>
+    <AuthModal isOpen={isOpen} onClose={onClose} title="Recover Password" heading={heading || "Please enter your email"}>
       {successMessage ? (
-        <div className="flex flex-col items-center gap-[10px]">
-          <div className="p-[10px] bg-[#E9F6EE] text-[#1E4620] rounded-[4px] flex flex-col max-w-[398px] ">
-            <img src="/check.svg" alt="Success" className="w-[24px] mb-2" />
-            <p className=" text-[14px] text-[#1E4620] font-medium">
-            An e-mail has been sent to your address with instructions to recover your password.            </p>
+        <div className="flex flex-col items-center gap-2">
+          <div className="p-2 bg-[#E9F6EE] text-[#1E4620] rounded-[4px] max-w-[398px] flex flex-col">
+            <img src="/check.svg" alt="Success" className="w-6 mb-2 mx-auto" />
+            <p className="text-[14px] font-medium">
+              An email has been sent to your address with instructions to recover your password.
+            </p>
           </div>
-
-          <AuthButton type="submit"> Recover </AuthButton>
-
+          <AuthButton type="button" onClick={onClose}>Close</AuthButton>
         </div>
       ) : (
         <AuthForm
@@ -79,7 +78,7 @@ export const RecoverPasswordModal = ({ isOpen, onClose, onLoginClick, heading }:
           <OrDivider />
 
           <GoogleButton />
-          <div className="text-center  md:text-[16px] text-[14px] text-[#697586] font-medium">
+          <div className="text-center text-[14px] md:text-[16px] text-[#697586] font-medium">
             Remember your password?
             <button type="button" onClick={onLoginClick} className="underline">
               Back to Log In
@@ -90,3 +89,4 @@ export const RecoverPasswordModal = ({ isOpen, onClose, onLoginClick, heading }:
     </AuthModal>
   );
 };
+

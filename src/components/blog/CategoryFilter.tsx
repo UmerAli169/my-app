@@ -47,9 +47,10 @@ const CategoryFilter = () => {
               </button>
             ))}
           </div>
+          
           <button
             onClick={handleScroll}
-            className="absolute right-[290px]  top-1/2 -translate-y-1/2"
+            className="absolute lg:right-[30px]   right-[10px] top-1/2 -translate-y-1/2"
           >
             <img src="/svgs/Shared/ProductSection/rightArrow.svg"  className="w-[40px]" alt="" />
             </button>

@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import * as Yup from 'yup';
 import { AuthModal } from '../common/AuthModal';
@@ -6,6 +8,8 @@ import { AuthInput } from '../../shared/Input';
 import { AuthButton } from '../common/AuthButton';
 import { GoogleButton } from '../common/GoogleButton';
 import { OrDivider } from '../common/OrDivider';
+import { useAuthStore } from '@/store/authStore';
+import { login } from '@/services/internal';
 interface LoginModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -14,58 +18,40 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ isOpen, onClose, onRecoverPassword, onCreateAccount }: LoginModalProps) => {
-  const [loginError, setLoginError] = useState('');
+  const [loginError, setLoginError] = useState("");
+  const setUser = useAuthStore((state) => state.setUser);
 
-  const handleLogin = (values: Record<string, string>, { setSubmitting }: any) => {
-    console.log('Form submitted with values:', values);
+  const handleLogin = async (values: Record<string, string>, { setSubmitting }: any) => {
     setSubmitting(true);
-
-    setTimeout(() => {
-      if (values.email !== 'test@example.com' || values.password !== 'password123') {
-        setLoginError('Incorrect email or password.');
-      } else {
-        setLoginError('');
-        alert('Login successful');
-      }
+    try {
+      const userData = await login(values); 
+      setUser(userData); 
+      onClose();
+    } catch (error: any) {
+      setLoginError(error.response?.data?.message || "Login failed");
+    } finally {
       setSubmitting(false);
-    }, 1000);
+    }
   };
 
-  useEffect(() => {
-    if (loginError) {
-      const timer = setTimeout(() => {
-        setLoginError('');
-      }, 1500);
-
-      return () => clearTimeout(timer); // Cleanup timeout
-    }
-  }, [loginError]);
   return (
-    <AuthModal isOpen={isOpen} onClose={onClose} title='Log In' heading='Please enter your e-mail and password:'>
+    <AuthModal isOpen={isOpen} onClose={onClose} title="Log In" heading="Please enter your e-mail and password:">
       <AuthForm
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: "", password: "" }}
         validationSchema={Yup.object({
-          email: Yup.string().email('Invalid email address').required('Email is required'),
-          password: Yup.string().required('Password is required'),
+          email: Yup.string().email("Invalid email address").required("Email is required"),
+          password: Yup.string().required("Password is required"),
         })}
         onSubmit={handleLogin}
       >
-        {loginError && (
-          <div className='flex items-center gap-2 p-[10px] text-[14px] rounded-[4px] text-[#E77373] bg-[#F09A9B]/10'>
-            <img src='/error.svg' alt='error' />
-            {loginError}
-          </div>
-        )}
-
-        <AuthInput type='email' name='email' placeholder='Email' required />
-        <AuthInput type='password' name='password' placeholder='Password' required />
-
-        <AuthButton type='submit'>Log In</AuthButton>
-
+        {loginError && <div className="error">{loginError}</div>}
+        <AuthInput type="email" name="email" placeholder="Email" required />
+        <AuthInput type="password" name="password" placeholder="Password" required />
+        <AuthButton type="submit">Log In</AuthButton>
         <OrDivider />
         <GoogleButton />
-
-        <div className='text-center   md:text-[16px] text-[14px] text-[#697586] font-medium'>
+      </AuthForm>
+      <div className='text-center  py-[20px] md:text-[16px] text-[14px] text-[#697586] font-medium'>
           <button type='button' onClick={onRecoverPassword}>
             Forgot your password? <span className='underline'> Recover password </span>
           </button>
@@ -77,7 +63,12 @@ export const LoginModal = ({ isOpen, onClose, onRecoverPassword, onCreateAccount
             Create an Account
           </button>
         </div>
-      </AuthForm>
     </AuthModal>
+    
   );
 };
+
+
+
+      
+      

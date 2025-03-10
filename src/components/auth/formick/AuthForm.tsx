@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 
 interface AuthFormProps {
-  initialValues: Record<string, any>; // Updated to accept any type (including FileList)
+  initialValues: Record<string, any>;
   validationSchema: any;
   onSubmit: (values: Record<string, any>, actions: any) => void;
   children: React.ReactNode;
